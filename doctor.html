@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>doctor potral</title>
+  <link rel="stylesheet" type="text/css" href="CSS/doctor.css" />
+
+  <!--Linked Bootstrap CSS-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+  <!--Linked jquery CSS-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Include jquery DatePicker-->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <!-- Include js chart-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+
+  <!-- Include tooltip pack-->
+  <link rel="stylesheet" href="https://unpkg.com/@popperjs/core@2.10.2/dist/umd/popper.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/tippy.js@6.3.2/dist/tippy.css">
+</head>
+
+<body>
+  <!-- navbar section start -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-2">
+        <div class="pop">
+          <div class="container">
+            <a href="#" class="toggleBox" id="navIcon">
+              <span class="icon"></span>
+            </a>
+            <ul class="navItems">
+              <li>
+                <a href="#" id="popup-button-new-patients">
+                  <i class="fa fa-free-code-camp" style="--i:1"></i>
+                  <span style="--g:1">New</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" id="popup-button-chat">
+                  <i class="fa fa-comments" style="--i:2"></i>
+                  <span style="--g:2">Chat</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" id="popup-button-progress">
+                  <i class="fa fa-line-chart" style="--i:3"></i>
+                  <span style="--g:3">progress</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" id="popup-button-report">
+                  <i class="fa fa-list-alt" style="--i:4"></i>
+                  <span style="--g:4">Report</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" id="popup-button-settings">
+                  <i class="fa fa-cogs" style="--i:5"></i>
+                  <span style="--g:5">settings</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" id="popup-button-logout">
+                  <i class="fa fa-sign-out" style="--i:6"></i>
+                  <span style="--g:6">logout</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="user">
+          <h3 class="userName" id="userName-heading" style="text-align: left; margin-top: -10px;">
+            Hi, Dr.Ashan!
+          </h3>
+          <p style="text-align: left; margin-top: -5px;">Let's handle your day.</p>
+        </div>
+      </div>
+
+      <div class="col-5 d-flex">
+        <a id="brand" class="navbar-brand" href="#"><img src="Images/logo7.png" style="margin-left: 50px; height: 80px;"
+            alt=""></a>
+        <form class="d-flex" role="search" id="search">
+          <input class="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search"
+            style="border-color: blue;">
+          <button class="btn btn-primary rounded-pill" type="submit">Search</button>
+        </form>
+      </div>
+      <div class="col-2">
+        <a class="" href="#">
+          <img id="notification" src="Images/icons/icons8-notification-66.png">
+        </a>
+        <a href="#" id="popup-button-profile">
+          <img src="Images/ashan.jpg" id="profile" class="float-end">
+        </a>
+      </div>
+    </div>
+    <!-- navbar section end -->
+
+    <!-- dashboard section start -->
+    <div class="row content">
+      <div class="col-3">
+        <div class="card patientList">
+          <img
+            src="https://img.freepik.com/free-vector/drug-rehab-center-abstract-concept-vector-illustration-inpatient-drug-rehab-center-experimental-treatment-substance-abuse-rehabilitation-addiction-therapy-clinic-facility-abstract-metaphor_335657-4094.jpg?w=740&t=st=1695883874~exp=1695884474~hmac=7da75b12f27dc59f308978bb0370c90539383b1bb80b5877c3935f2fc2fb47a4"
+            class="card-img-top" alt="...">
+          <div class="card-body patientcard">
+            <h6 style="margin-top:-310px; text-align: center;">List of Patients</h6>
+            <div class="scrollable-list PL" id="main-patients-list">
+              <ul>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 md">
+        <div class="row">
+          <strong>Upcomming appointments</strong>
+          <hr>
+          <div class="middle row" id="therapyList">
+            <div class="col-5">
+              <p style="text-align: left;">Therapy sessions</p><br><br>
+              <div class="scrollable-list-shedule" id="schedule-list">
+                <ul>
+                  <!--Therapy session list will appear here-->
+                </ul>
+              </div>
+              <div class="navdiv">
+                <img src="Images/icons/up-arrow_10024479.png" id="upBtn" class="navbuttons" type="button"
+                  style="margin-top: -70px;" alt="">
+                <img src="Images/icons/down-arrow_10024529.png" id="downBtn" class="navbuttons" type="button"
+                  style="margin-left: -34px;" alt="">
+              </div>
+            </div>
+            <div class="col-7">
+              <p style="text-align: left;">Details</p><br><br>
+              <div class="d-flex" style="margin-top: -50px;">
+                <a href="#" class="popupAnim">
+                  <img class="shedule" src="Images/icons/calendar_282803.png">
+                  <span class="dateTime" id="therapyDate">22 June 2023</span>
+                </a>
+                <a href="#" class="popupAnim" style="margin-left: 40px;">
+                  <img class="shedule" src="Images/icons/alarm-clock_680375.png">
+                  <span class="dateTime" id="therapyTime">9.00 p.m.</span>
+                </a>
+              </div>
+              <div class="d-flex" style="margin-top: 10px;">
+                <a class="popupAnim" id="popup-button-doctors-test" type="button">
+                  <img class="shedule" src="Images/icons/magnifying-glass_1593649.png">
+                  <span class="dateTime">doctor's test</span>
+                </a>
+                <a class="popupAnim" id="popup-button-therapy-settings2" style="margin-left: 45px;" type="button">
+                  <img class="shedule" src="Images/icons/update_8051794.png">
+                  <span>Date Settings</span>
+                </a>
+              </div>
+              <hr>
+              <div class="d-flex" style="margin-top: 10px; margin-left: 10px;">
+                <img id="popup-button-add-notification" class="shedule sml popupAnim" type="button"
+                  src="Images/icons/bell_5649276.png">
+                <img id="popup-button-add-calender" class="shedule sml popupAnim" type="button"
+                  src="Images/icons/calendar_4461252.png">
+                <img id="popup-button-more" class="shedule sml popupAnim" type="button" onclick="loadMore()"
+                  src="Images/icons/app_9073102.png">
+                <div class="more" id="moreContainer">
+                  <img class="shedule sml popupAnim" id="quickAccessProgress" type="button" src="Images/icons/line-chart_556093.png" alt="">
+                  <img class="shedule sml popupAnim" id="" type="button" src="Images/icons/approval_556089.png" alt="">
+                  <img class="shedule sml popupAnim" id="" type="button" src="Images/icons/conversation_6815099.png" alt="">
+                  <img class="shedule sml popupAnim" id="" type="button" src="Images/icons/phone-call_8368056.png" alt="">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- therapy-settings section start -->
+        <div id="popup-container-therapy-settings">
+          <div id="popup-content-therapy-settings">
+            <h5 class="rw" style="text-align: center;">Free dates and times selected by patient</h5>
+            <div class="row rw">
+              <div class="col">
+                <div class="d-flex dateSettings-tableHead">
+                  <h6>Date</h6>
+                  <h6 style="margin-left: 180px;">Time</h6>
+                </div>
+                <ul class="selected-dates" id="selected-dates"></ul><hr>
+                <div class="d-flex">
+                  <img src="Images/icons/calendar_282803.png" class="shedule" style="margin-left: 40px;" alt="">
+                  <input type="text" class="datepicker therapyDateChange" id="datepicker">
+                  <img src="Images/icons/alarm-clock_680375.png" class="shedule" style="margin-left: 30px;" alt="">
+                  <div>
+                    <label for="start-time" class="lbl-time st">From</label>
+                    <input class="changeDateTime" type="time" id="start-time"><br>
+                    <label for="end-time" class="lbl-time ed">To</label>
+                    <input class="changeDateTime" type="time" id="end-time">
+                  </div>
+                </div>
+                <p><button class="btn btn-primary date-change" id="date-change">Change the Date</button></p>
+              </div>
+            </div>
+
+            <div class="row rw">
+
+            </div>
+          </div>
+        </div>
+        <!-- therapy-settings section end -->
+
+        <!-- add-calender section start -->
+        <div id="popup-container-add-calender">
+          <div id="popup-content-add-calender">
+            <img src="Images/icons/question-mark_3840674.png" style="height: 60px; margin-bottom: 20px;">
+            <h6>Do you want to add this event to Calender</h6>
+            <div class="d-flex" style="margin-top: 20px;">
+              <button class="btn btn-primary rounded-pill" id="btn-add-calender"
+                style="margin-left: 90px; margin-right: 20px; width: 80px;">Add</button>
+              <button class="btn btn-primary rounded-pill" id="close-add-calender-button">Cancle</button>
+            </div>
+          </div>
+        </div>
+        <!-- add-calender section end -->
+
+        <!-- add-notification section start -->
+        <div id="popup-container-add-notification">
+          <div id="popup-content-add-notification">
+            <img src="Images/icons/question-mark_3840674.png" style="height: 60px; margin-bottom: 20px;">
+            <h6>Do you want to add a Notification</h6>
+            <div class="cmb-before-time">
+              <select class="form-select form-select-sm form-control" required>
+                <option value="" selected disabled>How much time before</option>
+                <option value="">10 Minutes</option>
+                <option value="">30 Minutes</option>
+                <option value="">1 Hour</option>
+                <option value="">5 Hour</option>
+                <option value="">12 Hour</option>
+                <option value="">1 Day</option>
+                <option value="">2 Days</option>
+                <option value="">1 Week</option>
+              </select>
+            </div>
+            <div class="d-flex" style="margin-top: 20px;">
+              <button class="btn btn-primary rounded-pill" id="btn-add-notification"
+                style="margin-left: 90px; margin-right: 20px; width: 80px;">Add</button>
+              <button class="btn btn-primary rounded-pill" id="close-add-notification-button">Cancle</button>
+            </div>
+          </div>
+        </div>
+        <!-- add-notification section end -->
+
+        <!-- doctor's test section start -->
+        <div id="popup-container-doctors-test">
+          <div id="popup-content-doctors-test">
+            <P style="text-align: center;">Sorry Doctor's Test not Available yet. It will be avalable soon.</P>
+          </div>
+        </div>
+        <!-- doctor's test section end -->
+
+        <!-- success section start -->
+        <div id="popup-container-success">
+          <div id="popup-content-success">
+            <img src="Images/icons/checked_190411.png" style="height: 60px; margin-bottom: 20px;">
+            <h4>Add Successfully</h4>
+          </div>
+        </div>
+        <!-- success section end -->
+
+        <div class="row" style="margin-top: 20px; height: 280px;">
+          <strong>Analysis</strong>
+          <hr>
+          <div class="col-7 lineChartContainer">
+            <div class="chart-container" style="width: 95%;margin-top: 10px;">
+              <canvas id="lineChart"></canvas>
+            </div>
+          </div>
+          <div class="col-5 doughnutChartContainer">
+            <div class="chart-container" style="width: 100%; margin: 0 auto;">
+              <canvas id="doughnutChart" style="height: 230px;"></canvas>
+            </div>
+          </div>
+          <p class="doughnutText">Total<br>125</p>
+        </div>
+      </div>
+
+      <div class="col-3 right">
+        <div class="row">
+          <strong>List of appointments</strong>
+          <hr>
+
+          <div class="contianer">
+            <div class="calendar">
+              <div class="calendar-header">
+                <span class="month-picker" id="month-picker"> May </span>
+                <div class="year-picker" id="year-picker">
+                  <span class="year-change" id="pre-year">
+                    <pre><</pre>
+                  </span>
+                  <span id="year">2020 </span>
+                  <span class="year-change" id="next-year">
+                    <pre>></pre>
+                  </span>
+                </div>
+              </div>
+
+              <div class="calendar-body">
+                <div class="calendar-week-days">
+                  <div>Sun</div>
+                  <div>Mon</div>
+                  <div>Tue</div>
+                  <div>Wed</div>
+                  <div>Thu</div>
+                  <div>Fri</div>
+                  <div>Sat</div>
+                </div>
+                <div class="calendar-days">
+                </div>
+              </div>
+              <div class="calendar-footer">
+              </div>
+              <div class="date-time-formate">
+                <div class="day-text-formate">TODAY</div>
+                <div class="date-time-value" style="margin-left: 10px;">
+                  <div class="time-formate">02:51:20</div>
+                  <div class="date-formate">23 - july - 2022</div>
+                </div>
+              </div>
+              <div class="month-list"></div>
+            </div>
+          </div>
+
+          <!------------------------------ Event Modal start-------------------------------------->
+          <div id="event-modal-container">
+            <div class="event-modal" id="event-modal">
+              <h4 style="text-align: center;">Add Event</h4>
+              <div class="row d-flex">
+                <div class="col-6">
+                  <div class="d-flex">
+                    <label>Date:</label>
+                    <input type="text" class="event-input" id="event-date">
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="d-flex">
+                    <label>Time:</label>
+                    <input class="event-input" type="time" id="event-time" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row" style="margin-top: 15px; margin-bottom: 15px;">
+                <div class="d-flex">
+                  <label>Title:</label>
+                  <input type="text" class="event-input" style="width: 340px;" id="event-title" required>
+                </div>
+              </div>
+
+              <label for="event-description">Description:</label>
+              <textarea id="event-description" style="background-color: #E4F1FF;" rows="4"></textarea>
+
+              <div class="d-flex">
+                <button id="save-event" type="submit" class="btn btn-primary rounded-pill"
+                  style="margin-left: 90px; margin-right: 10px;">Save Event</button>
+                <button id="btn-close-event" class="btn btn-primary rounded-pill">Cancle</button>
+              </div>
+
+            </div>
+          </div>
+          <!------------------------------ Event Modal end-------------------------------------->
+
+          <!--event manager section start -->
+        </div>
+        <div class="row">
+          <div class="event-manager">
+            <a href="#" id="popup-button-event-manager">
+              <img style="margin-top: -20px;" class="shedule" id="img-EM" src="Images/icons/calendar_10281559.png">
+              <h4 class="EM-title">Event Manager</h4>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--event manager section end -->
+    <!-- dashboard section end -->
+
+
+    <!-- event-manager section start -->
+    <div id="popup-container-event-manager">
+      <div id="popup-content-event-manager">
+
+        <div class="row d-flex">
+
+          <div class="col-6">
+            <div class="event-modal" id="event-manager-event-modal">
+              <div class="row d-flex">
+                <div class="col-6">
+                  <div class="d-flex">
+                    <label>Date:</label>
+                    <input type="text" class="event-input datepicker em" id="event-manager-event-date">
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="d-flex">
+                    <label>Time:</label>
+                    <input class="event-input em" type="time" id="event-manager-event-time" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row" style="margin-top: 15px; margin-bottom: 15px;">
+                <div class="d-flex">
+                  <label>Title:</label>
+                  <input type="text" class="event-input em" style="width: 340px;" id="event-manager-event-title"
+                    required>
+                </div>
+              </div>
+
+              <label for="event-description" style="margin-top: 25px;">Description:</label>
+              <textarea id="event-manager-event-description" class="em" rows="5"></textarea>
+
+              <div class="d-flex" style="margin-top: 25px;">
+                <img class="shedule" id="editEvent" src="Images/icons/check_4458848.png" type="button" onclick="editEvent()" alt="">
+                <img class="shedule" id="deleteEvent" src="Images/icons/cancel_4458845.png" type="button" onclick="deleteEvent()" alt="">
+                <img class="shedule" id="searchEvent" src="Images/icons/search_4458836.png" type="button" onclick="searchEvent()" alt="">
+                <img class="shedule" id="addEvent" src="Images/icons/add_4458899.png" type="button" onclick="addAnotherEvent()"
+                  alt="">
+                <img class="shedule" id="clearForm" src="Images/icons/spatula_288724.png" type="button" onclick="clearForm()" alt="">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <h5 style="text-align: center; color: rgba(0, 0, 0, 0.647);">List of Events</h5>
+            <table border="1" class="event-tbl">
+              <thead style="text-align: center;">
+                <tr class="head-row">
+                  <th class="event-tbl-head">Title</th>
+                  <th class="event-tbl-head">Date</th>
+                  <th class="event-tbl-head">Time</th>
+                </tr>
+              </thead>
+              <tbody id="eventTableBody">
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- event-manager section end -->
+
+    <!-- patient profile section start -->
+    <div id="popup-container-patient-profile">
+      <div id="popup-content-patient-profile">
+        <div class="row d-flex">
+          <div class="col-6" style="padding-top: 50px;">
+
+            <ul class="tabs">
+              <li class="tab-button active" data-tab="tab1">Personal Info</li>
+              <li class="tab-button" data-tab="tab2">Medical Info</li>
+              <li class="tab-button" data-tab="tab3">Other Info</li>
+            </ul>
+
+            <div id="tab1" class="tab-content active">
+
+              <input type="hidden" class="form-control form-control-sm parTag" id="pid" readonly>
+              <div class="d-flex">
+                <h6 class="tag">First Name</h6>
+                <input type="text" class="form-control form-control-sm parTag" id="pname1" readonly>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex">
+                <h6 class="tag">Last Name</h6>
+                <input type="text" class="form-control form-control-sm parTag" id="pname2" readonly>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex">
+                <h6 class="tag">Birthday</h6>
+                <input type="text" id="pdob" name="datepicker" class="datepicker form-control form-control-sm parTag"
+                  id="pdob" readonly>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex">
+                <h6 class="tag">Age</h6>
+                <input type="text" class="form-control form-control-sm parTag" id="page" readonly>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex">
+                <h6 class="tag">Gender</h6>
+                <input id="pcmbgender" class="form-control form-control-sm parTag ps2" readonly>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex">
+                <h6 class="tag">Address</h6>
+                <input type="text" class="form-control form-control-sm parTag" id="paddress" readonly>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex">
+                <h6 class="tag">Email</h6>
+                <input type="text" class="form-control form-control-sm parTag" id="pemail" readonly>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex">
+                <h6 class="tag">Contact number</h6>
+                <input type="text" class="form-control form-control-sm parTag" id="pcontactno1" readonly>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex">
+                <h6 class="tag">Third party contact</h6>
+                <input type="text" class="form-control form-control-sm parTag" id="pcontactno2" readonly>
+              </div>
+              <hr style="margin-top: -6px;">
+            </div>
+
+            <div id="tab2" class="tab-content">
+
+              <div id="disElement1">
+                <div class="d-flex">
+                  <h6 class="tag">Disorder 01</h6>
+                  <input type="text" class="form-control form-control-sm parTag" id="disorder01" readonly>
+                  <i class="fa fa-pencil edit" id="dis1-icon" aria-hidden="true" onclick="editItem(id)" style="z-index: 99;"></i>
+                  <i class="fa fa-plus-circle edit" id="addDisorder" style="z-index: 99; margin-left: 10px;"></i>
+                </div>
+                <hr style="margin-top: -6px;">
+              </div>
+
+              <div id="disElement2">
+                <div class="d-flex">
+                  <h6 class="tag">Disorder 02</h6>
+                  <input type="text" class="form-control form-control-sm parTag" id="disorder02" readonly>
+                  <i class="fa fa-pencil edit" id="dis2-icon" aria-hidden="true" onclick="editItem(id)" style="z-index: 99;"></i>
+                </div>
+                <hr style="margin-top: -6px;">
+              </div>
+
+              <div id="disElement3">
+                <div class="d-flex">
+                  <h6 class="tag">Disorder 03</h6>
+                  <input type="text" class="form-control form-control-sm parTag" id="disorder03" readonly>
+                  <i class="fa fa-pencil edit" id="dis3-icon" aria-hidden="true" onclick="editItem(id)" style="z-index: 99;"></i>
+                </div>
+                <hr style="margin-top: -6px;">
+              </div>
+
+              <div class="d-flex">
+                <h6 class="tag">Primary Concern</h6>
+                <input type="text" class="form-control form-control-sm parTag" id="primaryConcern" readonly>
+                <i class="fa fa-pencil edit" id="primaryConcern-icon" aria-hidden="true" onclick="editItem(id)" style="z-index: 99;"></i>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex">
+                <h6 class="tag">Diagnosis</h6>
+                <input type="text" class="form-control form-control-sm parTag" id="diagnosis" readonly>
+                <i class="fa fa-pencil edit" id="diagnosis-icon" aria-hidden="true" onclick="editItem(id)" style="z-index: 99;"></i>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex">
+                <h6 class="tag">Symptoms</h6>
+                <textarea class="form-control form-control-sm parTag" id="symptoms" style="height:auto;" readonly></textarea>
+                <i class="fa fa-pencil edit" id="symptoms-icon" aria-hidden="true" onclick="editItem(id)" style="z-index: 99;"></i>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex">
+                <h6 class="tag">Treatment Plan</h6>
+                <input type="text" class="form-control form-control-sm parTag" id="treatmentPlan" readonly>
+                <i class="fa fa-pencil edit" id="treatmentPlan-icon" aria-hidden="true" onclick="editItem(id)" style="z-index: 99;"></i>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex" style="margin-top: 60px; margin-left: 100px;">
+                <button class="btn btn-primary rounded-pill" id="chnageMedicalDetails" type="submit"
+                  style="margin-right: 20px;">Save changes</button>
+                <button class="btn btn-primary rounded-pill" id="discardChanges">Discard changes</button>
+              </div>
+
+            </div>
+
+            <div id="tab3" class="tab-content">
+
+              <div class="d-flex">
+                <h6 class="tag">Additional Notes</h6>
+                <textarea class="form-control form-control-sm parTag" id="additionalNotes" style="height:auto;" readonly></textarea>
+                <i class="fa fa-pencil edit" id="additionalNotes-icon" aria-hidden="true" onclick="editItem(id)" style="z-index: 99;"></i>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <p id="viewProg">
+                <img src="Images/icons/line-chart_556093.png" class="shedule" alt="">
+                View Progress
+              </p>
+            </div>
+
+
+          </div>
+
+          <div class="col-6" style="margin-left: 500px; margin-top: 50px; position: absolute;">
+            <img src="" alt="" id="patientImg" class="patientImg">
+            <div class="d-flex pa-handle">
+              <img src="Images/icons/delete-user_9977144.png" class="pa-Icon" alt="">
+              <h5>Remove this patient</h5>
+            </div>
+            <div class="d-flex pa-handle">
+              <img src="Images/icons/customer-service_9977107.png" class="pa-Icon" alt="">
+              <h5>Report this patient</h5>
+            </div>
+            <div class="d-flex pa-handle">
+              <img src="Images/icons/question_9977140.png" class="pa-Icon" alt="">
+              <h5>Question this patient</h5>
+            </div>
+            <img src="Images/icons/icons8-close-48.png" id="close-patient-profile-button" class="close-patient" type="button" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- profile section end -->
+
+    <!-- new patients section start -->
+    <div id="popup-container-new-patients">
+      <div id="popup-content-new-patients">
+        <div class="row d-flex">
+          <div class="col-6">
+            
+            <h4 style="text-align: center; margin-bottom: 50px;">New Patient Requests</h4>
+            
+            <!--<div class="newPatient-list">
+              <ul>
+                <li class="newPatient d-flex" type="button">
+                  <img src="Images/icons/icons8-male-user-94.png" class="patient-img" alt="">
+                  <div class="patient-name">John Snow</div>
+                  <button class="btn rounded-pill accept">Accept</button>
+                  <button id="toggleButton" class="btn rounded-pill info-toggle">View Info</button>
+                </li>
+              </ul>
+            </div>-->
+            <div class="patientsList" id="newPatient-list">
+              <ul>
+
+              </ul>
+            </div>
+            <img src="Images/icons/icons8-close-48.png" id="close-button-new-patients" class="close-new" type="button" alt="">
+          </div>
+          <div class="col-6" style="width: 570px;">
+            <div class="container-info">
+
+              <div class="personalInfo">
+                <h4 class="info-head">Personal Information</h4>
+                <p><img src="Images/icons/icons8-male-user-94.png" id="new-patient-pic" class="new-patient-pic" alt=""></p>
+
+                <div class="d-flex">
+                  <h6 class="tag">First Name</h6>
+                  <input type="text" class="form-control form-control-sm parTag" id="np-name1" value="Ashan" readonly>
+                </div>
+                <hr style="margin-top: -6px;">
+
+                <div class="d-flex">
+                  <h6 class="tag">Last Name</h6>
+                  <input type="text" class="form-control form-control-sm parTag" id="np-name2" value="Avishka" readonly>
+                </div>
+                <hr style="margin-top: -6px;">
+
+                <div class="d-flex">
+                  <h6 class="tag">Birthday</h6>
+                  <input type="text" id="np-dob" name="datepicker" class="datepicker form-control form-control-sm parTag"
+                    id="dob" value="25/02/2001" readonly>
+                </div>
+                <hr style="margin-top: -6px;">
+
+                <div class="d-flex">
+                  <h6 class="tag">Age</h6>
+                  <input type="text" class="form-control form-control-sm parTag" id="np-age" value="23" readonly>
+                </div>
+                <hr style="margin-top: -6px;">
+
+                <div class="d-flex">
+                  <h6 class="tag">Gender</h6>
+                  <input class="form-control form-control-sm parTag " id="np-cmbgender" readonly>
+                </div>
+                <hr style="margin-top: -6px;">
+
+                <div class="d-flex">
+                  <h6 class="tag">Address</h6>
+                  <input type="text" class="form-control form-control-sm parTag" id="np-address" readonly>
+                </div>
+                <hr style="margin-top: -6px;">
+
+                <div class="d-flex">
+                  <h6 class="tag">Email</h6>
+                  <input type="text" class="form-control form-control-sm parTag" id="np-email" readonly>
+                </div>
+                <hr style="margin-top: -6px;">
+
+                <div class="d-flex">
+                  <h6 class="tag">Contact number</h6>
+                  <input type="text" class="form-control form-control-sm parTag" id="np-contactno" readonly>
+                </div>
+                <hr style="margin-top: -6px;">
+
+              </div>
+              <div class="medicalInfo">
+                <h4 class="info-head">Medical Information</h4>
+                <!-- Include your medical information here -->
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- new patients section end -->
+
+    <!-- chat section start -->
+    <div id="popup-container-chat">
+      <div id="popup-content-chat">
+        <div class="row d-flex">
+          <div class="col-3 chatHeadCon">
+            <div class="wrap">
+              <div class="search">
+                <input type="text" class="searchTerm" id="searchPatientChat" placeholder="Search by name">
+                <button type="submit" class="searchButton">
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
+            </div>
+            <div class="chtList" id="chatList">
+              <ul>
+
+              </ul>
+            </div>
+          </div>
+          <div class="col-8 chat-content">
+
+            <div class="chat-messages">
+
+            </div>
+
+            <form class="chat-input-form">
+              <input type="text" class="chat-input" required placeholder="Type your massege here..." />
+              <button type="submit" class="button send-button">Send</button>
+            </form>
+            
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- chat section end -->
+
+    <!-- progress section start -->
+    <div id="popup-container-progress">
+      <div id="popup-content-progress">
+        <div class="row">
+          <div class="col-5">
+            <h4 style="text-align: center; margin-top: 10px; margin-bottom: 40px;">List of Patients</h4>
+            <div class="wrap2">
+              <div class="search">
+                <input type="text" class="searchTerm" id="searchPtaientProgress" placeholder="Search by name">
+                <button type="submit" class="searchButton">
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
+            </div>
+            <div class="Patient-list-progress" id="Patient-list-progress">
+              <ul>
+
+              </ul>
+            </div>
+            <button class="btn rounded-pill overallPrg">
+              Overall Progress
+              <img src="Images/icons/visualisation_8994674.png" style="width: 50px; height: 50px; margin-left: 10px;"
+                alt="">
+            </button>
+          </div>
+          <div class="col-7" style="margin-left: -30px;">
+            <div class="circulerCharts d-flex">
+              <div class="col-4">
+                <h6 style="margin-left: 40px;">Weekly Progress</h6>
+                <div class="back d-flex">
+                  <div class="outer">
+                    <div class="inner">
+                      <div id="Wnumber"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-4">
+                <h6 style="margin-left: 40px;">Monthly Progress</h6>
+                <div class="back d-flex">
+                  <div class="outer">
+                    <div class="inner">
+                      <div id="Mnumber"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-4">
+                <h6 style="margin-left: 40px;">Yearly Progress</h6>
+                <div class="back d-flex">
+                  <div class="outer">
+                    <div class="inner">
+                      <div id="Ynumber"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="barchart row">
+              <h5 style="text-align: center; font-weight: 600;">Recently Progress</h5>
+              <div class="chart">
+                <div class="pbar" style="background-color: #618deb22;"><span id="dayTag-0" class="pDate">1st</span>
+                </div>
+                <div class="pbar" style="background-color:  #618deb46;"><span id="dayTag-1" class="pDate">2nd</span>
+                </div>
+                <div class="pbar" style="background-color:  #618deb78;"><span id="dayTag-2" class="pDate">3rd</span>
+                </div>
+                <div class="pbar" style="background-color:  #618deba7;"><span id="dayTag-3" class="pDate">4th</span>
+                </div>
+                <div class="pbar" style="background-color:  #618debda;"><span id="dayTag-4" class="pDate">5th</span>
+                </div>
+                <div class="pbar" style="background-color:  #618deb;"><span id="dayTag-5" class="pDate">6th</span></div>
+                <div class="pbar" style="background-color:  #618deb;"><span id="dayTag-6" class="pDate">7th</span></div>
+                <div class="pbar" style="background-color:  #5081eb;"><span id="dayTag-7" class="pDate">8th</span></div>
+                <div class="pbar" style="background-color:  #3a73ec;"><span id="dayTag-8" class="pDate">9th</span></div>
+                <div class="pbar" style="background-color:  #2866ec;"><span id="dayTag-9" class="pDate">10th</span>
+                </div>
+                <div class="pbar" style="background-color:  #1156ea;"><span id="dayTag-10" class="pDate">11th</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <img src="Images/icons/icons8-close-48.png" id="close-button-progress" class="close-Prg" type="button" alt="">
+
+        <svg id="svg1" width="160px" height="160px">
+          <defs>
+            <linearGradient id="progressGradient1" gradientTransform="rotate(90)">
+              <stop offset="0%" stop-color="#4C4B16" />
+              <stop offset="100%" stop-color="#FFD700" />
+            </linearGradient>
+          </defs>
+          <circle id="cr1" cx="80" cy="80" r="70" stroke-linecap="round" />
+        </svg>
+
+        <svg id="svg2" width="160px" height="160px">
+          <defs>
+            <linearGradient id="progressGradient2" gradientTransform="rotate(90)">
+              <stop offset="0%" stop-color="#FF2171" />
+              <stop offset="100%" stop-color="#FFD0D0" />
+            </linearGradient>
+          </defs>
+          <circle id="cr2" cx="80" cy="80" r="70" stroke-linecap="round" />
+        </svg>
+
+        <svg id="svg3" width="160px" height="160px">
+          <defs>
+            <linearGradient id="progressGradient3" gradientTransform="rotate(90)">
+              <stop offset="0%" stop-color="#0B666A" />
+              <stop offset="100%" stop-color="#40d4c8" />
+            </linearGradient>
+          </defs>
+          <circle id="cr3" cx="80" cy="80" r="70" stroke-linecap="round" />
+        </svg>
+      </div>
+    </div>
+    <!-- progress section end -->
+
+    <!-- report section start -->
+    <div id="popup-container-report">
+      <div id="popup-content-report">
+        <div class="row">
+          <div class="col-6">
+            <h4 style="text-align: center; margin-top: 10px; margin-bottom: 40px;">List of Patients</h4>
+            <div class="wrap2" style="margin-left: 250px;">
+              <div class="search">
+                <input type="text" class="searchTerm" placeholder="Search by name" id="searchPtaientReport">
+                <button type="submit" class="searchButton">
+                  <i class="fa fa-search"></i>
+                </button>
+              </div>
+            </div>
+            <div class="Patient-list-progress" id="Patient-list-report" style="height: 360px;">
+              <ul>
+
+              </ul>
+            </div>
+          </div>
+          <div class="col-6">
+            <div id="reportContainer"></div>
+          </div>
+          <div class="loading" id="spinner1">
+            <div class="spinner-border text-primary" style="margin-left: 50px;" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            <h6 style="font-weight: 600;">Getting Report...</h6>
+          </div>
+          <div class="loading2" id="spinner2">
+            <div class="spinner-border text-primary" style="margin-left: 50px;" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            <h6 style="font-weight: 600;">Updating Report...</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- report section end -->
+
+    <!-- settings section start -->
+    <div id="popup-container-settings">
+      <div id="popup-content-settings">
+        <div class="row d-flex">
+          <div class="col-6">
+
+          </div>
+          <div class="col-6">
+            <img
+              src="https://img.freepik.com/free-vector/custom-style-script-website-optimization-coding-software-development-female-programmer-cartoon-character-working-adding-javascript-css-code_335657-2370.jpg?w=740&t=st=1691859469~exp=1691860069~hmac=b0724e4fc0cf2272e1ea3a443f8211b6d1095867793ff723ff3cece50ef1db0a"
+              alt="">
+            <img src="Images/icons/icons8-close-48.png" class="close-settings" type="button" id="close-settings-button"
+              alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- settings section end -->
+
+    <!-- logout section start -->
+    <div id="popup-container-logout">
+      <div id="popup-content-logout">
+        <img src="Images/icons/icons8-warning-48.png" alt="">
+        <h6>Are you sure want to logout this site?</h6>
+        <div class="d-flex" style="margin-top: 20px;">
+          <button class="btn btn-primary rounded-pill" id="loggingout-btn" style="margin-left: 90px; margin-right: 20px;">Logout</button>
+          <button class="btn btn-primary rounded-pill" id="close-button-logout">Cancle</button>
+        </div>
+      </div>
+    </div>
+    <!-- logout section end -->
+
+    <!-- profile section start -->
+    <div id="popup-container-profile">
+      <div id="popup-content-profile">
+        <div class="row">
+          <form id="updateDetails2">
+            <div class="col-6">
+
+              <div class="d-flex">
+                <img id="display_image2" src="">
+                <input class="chooseBtn" name="user_image2" type="file" id="image_input2" accept="image/*">
+              </div>
+
+              <input type="hidden" class="form-control form-control-sm parTag" id="doc-id" name="id" value="" readonly>
+              <div class="d-flex">
+                <h6 class="tag">First Name</h6>
+                <input type="text" class="form-control form-control-sm parTag" id="doc-name1" name="first_name"
+                  value="Ashan" readonly>
+                <i class="fa fa-pencil edit" id="name1-icon" aria-hidden="true" onclick="editItem(id)"></i>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex">
+                <h6 class="tag">Last Name</h6>
+                <input type="text" class="form-control form-control-sm parTag" id="doc-name2" name="last_name"
+                  value="Avishka" readonly>
+                <i class="fa fa-pencil edit" id="name2-icon" aria-hidden="true" onclick="editItem(id)"></i>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex">
+                <h6 class="tag">Birthday</h6>
+                <input type="text" name="datepicker" class="datepicker form-control form-control-sm parTag" id="doc-dob"
+                  name="dob" value="25/02/2001" readonly>
+                <i class="fa fa-pencil edit" id="dob-icon" aria-hidden="true" onclick="editItem(id)"></i>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex">
+                <h6 class="tag">Age</h6>
+                <input type="text" class="form-control form-control-sm parTag" id="doc-age" name="age" value="23"
+                  readonly>
+                <i class="fa fa-pencil edit" id="age-icon" aria-hidden="true" onclick="editItem(id)"></i>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex">
+                <h6 class="tag">Gender</h6>
+                <div class="d-flex" id="doc-genclick">
+                  <select id="doc-cmbgender" class="form-control form-control-sm parTag ps" name="doc-cmbgender"
+                    readonly>
+                    <option value="Male" selected disabled>Male</option>
+                    <option value="Female" disabled>Female</option>
+                  </select>
+                  <i class="fa fa-pencil edit" id="gender-icon" aria-hidden="true" onclick="editItem(id)"></i>
+                </div>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex">
+                <h6 class="tag">Address</h6>
+                <input type="text" class="form-control form-control-sm parTag" id="doc-address" name="address"
+                  value="118A, Kirinda Puhulwella, Matara" readonly>
+                <i class="fa fa-pencil edit" id="address-icon" aria-hidden="true" onclick="editItem(id)"></i>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex">
+                <h6 class="tag">Email</h6>
+                <input type="text" class="form-control form-control-sm parTag" id="doc-email" name="email"
+                  value="ashanavishka81@gmail.com" readonly>
+                <i class="fa fa-pencil edit" id="email-icon" aria-hidden="true" onclick="editItem(id)"></i>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex">
+                <h6 class="tag">Contact number</h6>
+                <input type="text" class="form-control form-control-sm parTag" id="doc-contactno" name="contact_no"
+                  value="0783467859" readonly>
+                <i class="fa fa-pencil edit" id="con1-icon" aria-hidden="true" onclick="editItem(id)"></i>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex">
+                <h6 class="tag">Username</h6>
+                <input type="text" class="form-control form-control-sm parTag" id="doc-un" name="username" value="Ashan"
+                  readonly>
+                <i class="fa fa-pencil edit" id="un-icon" aria-hidden="true" onclick="editItem(id)"></i>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex">
+                <h6 class="tag">Password</h6>
+                <div class="d-flex" id="doc-pwclick">
+                  <input type="password" class="form-control form-control-sm parTag ps" id="doc-pw" name="password"
+                    value="reachthefinish1" readonly>
+                  <i class="fa fa-pencil edit" id="pw-icon" aria-hidden="true" onclick="editItem(id)"></i>
+                </div>
+              </div>
+              <hr style="margin-top: -6px;">
+            </div>
+
+            <div class="col-6" style="margin-left: 580px; margin-top: -535px;">
+              <img
+                src="https://img.freepik.com/free-vector/user-verification-unauthorized-access-prevention-private-account-authentication-cyber-security-people-entering-login-password-safety-measures_335657-3530.jpg?w=740&t=st=1691917573~exp=1691918173~hmac=a9cb4b658640ef694a797a44cee9b421061f1209cc8dbe72c4d6090abc32cd5b"
+                alt="" style="height: 500px">
+              <div class="d-flex edit-btns">
+                <button class="btn btn-primary rounded-pill" id="save-button" type="submit"
+                  style="margin-right: 20px;">Save changes</button>
+                <button class="btn btn-primary rounded-pill" id="discard-button">Discard changes</button>
+              </div>
+              <img src="Images/icons/icons8-close-48.png" class="close-profile" type="button" id="close-profile-button"
+                alt="">
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- profile section end -->
+
+    <!--Java Script-->
+    <script src="JS/doctor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+        src = " https://kit.fontawesome.com/a076d05399.js"
+    </script>
+
+    <!--Java Script for tooltips-->
+    <script src="https://unpkg.com/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6.3.2/dist/tippy-bundle.umd.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mental Health Management System</title>
+  <link rel="stylesheet" type="text/css" href="CSS/style1.css" />
+
+  <!--Linked Bootstrap CSS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js"></script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+  <!--Linked jquery CSS-->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Include Bootstrap CSS and JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js"></script>
+
+  <!-- Include jquery DatePicker-->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <!-- Include icomoon icon pack-->
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+</head>
+
+<body>
+  <!-- navbar section start -->
+  <div class="navbr">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a id="brand" class="navbar-brand" href="#">
+        <img src="Images/logo7.png" class="logo-img" style="margin-left: 100px; height: 100px;" alt="">
+      </a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-top: 5px;">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#Hero-section">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#Services-section">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#Reviews-section">Reviews</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#About-section">About</a>
+          </li>
+          <li class="nav-lg btn btn-primary btn-sm rounded-pill" id="popup-button-login">
+            <span class="nav-login" href="#">Login</span>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <!-- navbar section end -->
+
+  <!-- hero section start -->
+  <section id="Hero-section" class="section">
+    <div class="hero col-12">
+      <div class="row">
+        <div class="col-lg-6" id="hero">
+          <h1 class="MainHD">Mental Health</h1>
+          <p style="font-weight: bold;">With Brainstorm</p>
+          <p>Mental health is an integral part of our overall well-being, encompassing our emotional, psychological, and
+            social well-being. It affects how we think, feel, and act, and plays a crucial role in determining how we
+            handle stress, relate to others, and make choices. Nurturing and prioritizing mental health is essential for
+            living a fulfilling and balanced life.</p>
+          <div class="btn btn-primary" id="btn-start">Get Start</div>
+        </div>
+        <div class="col-lg-6 hero-img">
+          <img src="Images/hero5.jpg">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- hero section end -->
+
+  <!-- services section start -->
+  <section id="Services-section">
+    <h1 class="headText block">Our Services</h1>
+
+    <div class="section block">
+      <div class="row s1">
+        <div class="col-6">
+          <img src="Images/img2.jpg" alt="...">
+        </div>
+        <div class="col-6">
+          <h3 class="services-heading">Check Your Mental State</h3>
+          <p class="service-p service-p1">Welcome to our Brainstorm platform, where your well-being is our priority. Our
+            platform employs cutting-edge AI-based algorithms to provide you with valuable insights into your mental
+            health.<br><br>
+            <button class="btn btn-outline-primary" id="learnMore-S1">Learn More</button>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section block">
+      <div class="row s1">
+        <div class="col-6">
+          <h3 class="services-heading">Start a Therapy Session</h3>
+          <p class="service-p service-p2">In our Brainstorm platform, the power to initiate a transformative journey
+            towards mental well-being is in your hands. Anytime, anywhere, you can seamlessly begin a therapy session
+            series with a carefully selected and qualified therapist of your choice.<br><br>
+            <button class="btn btn-outline-primary" id="learnMore-S2">Learn More</button>
+          </p>
+        </div>
+        <div class="col-6">
+          <img src="Images/img1.jpg" alt="...">
+        </div>
+      </div>
+    </div>
+
+    <div class="section block">
+      <div class="row s1">
+        <div class="col-6">
+          <img src="Images/img3.jpg" alt="...">
+        </div>
+        <div class="col-6">
+          <h3 class="services-heading">See Your Own Progress</h3>
+          <p class="service-p service-p3">Brainstorm is at the forefront of mental health care, providing an
+            unparalleled experience through comprehensive progress tracking. We recognize that the road to mental
+            well-being is a dynamic journey, and our innovative system allows us to assess your progress on a daily,
+            weekly, monthly, and yearly basis.<br><br>
+            <button class="btn btn-outline-primary" id="learnMore-S3">Learn More</button>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section block">
+      <div class="row s1">
+        <div class="col-6">
+          <h3 class="services-heading">AI will Always with You</h3>
+          <p class="service-p service-p4">In addition to our human therapists, our platform boasts an intelligent AI
+            companion designed to engage with patients in real-time. This innovative feature allows users to ask
+            questions, seek information, and receive personalized suggestions, creating a dynamic and responsive support
+            system available 24/7.<br><br>
+            <button class="btn btn-outline-primary" id="learnMore-S4">Learn More</button>
+          </p>
+        </div>
+        <div class="col-6">
+          <img src="Images/img5.jpg" alt="...">
+        </div>
+      </div>
+    </div>
+
+    <div class="section block">
+      <div class="row s1">
+        <div class="col-6">
+          <img src="Images/img4.jpg" alt="...">
+        </div>
+        <div class="col-6">
+          <h3 class="services-heading">Suite for every human cetogary</h3>
+          <p class="service-p service-p5">Brainstorm is designed as a comprehensive suite to cater to the diverse needs
+            of every human category. Whether you're seeking support for stress management, anxiety, depression, or
+            specific life challenges, our tailored services ensure that individuals from all walks of life find relevant
+            and effective assistance. <br><br>
+            <button class="btn btn-outline-primary" id="learnMore-S5">Learn More</button>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section block">
+      <div class="row s1">
+        <div class="col-6">
+          <h3 class="services-heading">Get a Complete Mental Health Report</h3>
+          <p class="service-p service-p6">Brainstorm empowers users with a comprehensive mental health report detailing
+            the disorders they may be experiencing. Through advanced assessments and thoughtful analysis, our system
+            generates a detailed description of identified disorders. <br><br>
+            <button class="btn btn-outline-primary" id="learnMore-S6">Learn More</button>
+          </p>
+        </div>
+        <div class="col-6">
+          <img src="Images/11248.jpg" alt="...">
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- services section end -->
+
+  <!-- reviews section start -->
+  <section id="Reviews-section">
+    <h1 class="headText block" style="color: white;">User Reviews</h1>
+
+    <div class="d-flex">
+
+      <div class="col-6">
+        <div class="section block">
+          <div class="review-content">
+            <img class="review-user-img" src="Images/rw-user1.jpg" alt="">
+            <h5 style="margin-bottom: 20px;">Alex Rodriguez</h5>
+            <p>"Incredible platform! The progress tracking keeps me motivated, and the AI chat provides instant
+              insights. The personalized mental health report was spot-on, and having a doctor's approval adds a layer
+              of trust. It's a game-changer for anyone serious about their well-being."</p>
+            <p>
+              <img class="review-star" src="Images/icons/star_2107928.png" alt="">
+              <img class="review-star" src="Images/icons/star_2107928.png" alt="">
+              <img class="review-star" src="Images/icons/star_2107928.png" alt="">
+              <img class="review-star" src="Images/icons/star_2107928.png" alt="">
+              <img class="review-star" src="Images/icons/star_2107928.png" alt="">
+            </p>
+          </div>
+        </div>
+
+        <div class="section block">
+          <div class="review-content" style="margin-top: 220px;">
+            <img class="review-user-img" src="Images/rw-user2.jpg" alt="">
+            <h5 style="margin-bottom: 20px;">Sophia Ramirez</h5>
+            <p>"Exceptional experience! The AI chat is a quick support lifeline, and the diverse therapist options make
+              it easy to find the right fit. The detailed mental health report is enlightening, and the doctor's
+              approval ensures a reliable diagnosis. Truly impressed with the holistic approach."</p>
+            <p>
+              <img class="review-star" src="Images/icons/star_2107928.png" alt="">
+              <img class="review-star" src="Images/icons/star_2107928.png" alt="">
+              <img class="review-star" src="Images/icons/star_2107928.png" alt="">
+              <img class="review-star" src="Images/icons/star_2107928.png" alt="">
+              <img class="review-star" src="Images/icons/star_2107992.png" alt="">
+            </p>
+          </div>
+        </div>
+
+        <div class="section block">
+          <div class="review-content" style="margin-top: 220px;">
+            <img class="review-user-img" src="Images/rw-user5.jpg" alt="">
+            <h5 style="margin-bottom: 20px;">Olivia Bennett</h5>
+            <p>"A godsend for mental health! The AI chat is surprisingly empathetic, offering helpful suggestions. The
+              progress tracking feature is motivating, and the mental health report is insightful. Getting a doctor's
+              approval instills confidence. This platform has truly transformed my approach to well-being."</p>
+            <p>
+              <img class="review-star" src="Images/icons/star_2107928.png" alt="">
+              <img class="review-star" src="Images/icons/star_2107928.png" alt="">
+              <img class="review-star" src="Images/icons/star_2107928.png" alt="">
+              <img class="review-star" src="Images/icons/star_2107928.png" alt="">
+              <img class="review-star" src="Images/icons/star_2107992.png" alt="">
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+        <div class="section block">
+          <div class="review-content" style="margin-top: 400px; margin-left: 100px;">
+            <img class="review-user-img" src="Images/rw-user4.jpg" alt="">
+            <h5 style="margin-bottom: 20px;">Emma Johnson</h5>
+            <p>"Revolutionary! The AI chat is like having a wise friend in your pocket. The progress tracking is a great
+              motivator, and the mental health report is thorough. Having a doctor's approval makes me trust the
+              insights. This platform has become an essential part of my self-care routine."</p>
+            <p>
+              <img class="review-star" src="Images/icons/star_2107928.png" alt="">
+              <img class="review-star" src="Images/icons/star_2107928.png" alt="">
+              <img class="review-star" src="Images/icons/star_2107928.png" alt="">
+              <img class="review-star" src="Images/icons/star_2107928.png" alt="">
+              <img class="review-star" src="Images/icons/star_2107928.png" alt="">
+            </p>
+          </div>
+        </div>
+
+        <div class="section block">
+          <div class="review-content" style="margin-top: 220px; margin-left: 100px;">
+            <img class="review-user-img" src="Images/rw-user3.jpg" alt="">
+            <h5 style="margin-bottom: 20px;">Ethan Chang</h5>
+            <p>"Top-notch mental health support! The AI chat is surprisingly intuitive, and the progress tracking keeps
+              me accountable. The mental health report is detailed and accurate, and the doctor's approval adds a
+              professional touch. This platform has exceeded my expectations, making therapy accessible and effective."
+            </p>
+            <p>
+              <img class="review-star" src="Images/icons/star_2107928.png" alt="">
+              <img class="review-star" src="Images/icons/star_2107928.png" alt="">
+              <img class="review-star" src="Images/icons/star_2107928.png" alt="">
+              <img class="review-star" src="Images/icons/star_2107928.png" alt="">
+              <img class="review-star" src="Images/icons/star_2107992.png" alt="">
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- reviews section end -->
+
+  <!-- about section start -->
+  <section id="About-section" class="section">
+    <div class="row" style="padding-top: 100px; ">
+      <h1 class="headText block"> About Us </h1>
+    </div>
+
+    <div class="row block">
+      <div class="col-6">
+        <p class="about-par">
+          <span style="font-size: 35px;">Welcome</span> to Brainstorm, a revolutionary platform dedicated to
+          transforming mental health support through innovative approaches and personalized care. At the heart of our
+          commitment is a powerful artificial intelligence system designed to engage in empathetic conversations,
+          providing a unique avenue for individuals to express their thoughts and emotions. This cutting-edge AI plays a
+          pivotal role in identifying potential mental health disorders by engaging in insightful and compassionate
+          dialogues with users. In addition to the conversational AI, Brainstorm offers a range of carefully crafted
+          tests, utilizing the latest advancements in psychological assessments to help pinpoint potential disorders and
+          guide individuals toward appropriate resources. <br><br> Our founder, Mr. Ashan Avishka, envisions a world
+          where mental health is accessible and destigmatized. Inspired by his vision, Brainstorm combines technology
+          with a human-centric approach to create a safe and supportive space for individuals to explore their mental
+          well-being. By leveraging the expertise of our dedicated team and the capabilities of our innovative tools, we
+          aspire to empower individuals on their unique paths to better mental health. Join us at Brainstorm and embark
+          on a transformative journey towards self-discovery, resilience, and lasting well-being.
+        </p>
+      </div>
+      <div class="col-6">
+        <img src="Images/logo7.png" alt="">
+      </div>
+    </div>
+
+    <div class="row block">
+      <div class="col-6">
+        <img
+          src="https://img.freepik.com/premium-vector/travel-tourism-with-famous-world-landmarks-globe_117404-24.jpg?w=1380"
+          alt="">
+      </div>
+      <div class="col-6 abt-text-col" style="padding-right: 100px;">
+        <h2 class="abt-head">Our Journey so far</h2>
+        <p>
+          In our journey at Brainstorm, we've grown from a vision to a dynamic platform, utilizing advanced AI and
+          targeted testing for personalized mental health support. Witnessing the positive impact on individuals within
+          our community has fueled our commitment to revolutionizing mental health care. Reflecting on our path so far,
+          we're inspired by the resilience we've witnessed and remain dedicated to pushing boundaries for a healthier
+          world.
+        </p>
+      </div>
+    </div>
+
+    <div class="row block">
+      <div class="col-6 abt-text-col" style="padding-left: 100px;">
+        <h2 class="abt-head">Our Community</h2>
+        <p>
+          Our community at Brainstorm thrives with over 500,000+ individuals, representing a tapestry of diverse
+          experiences and backgrounds. This inclusive space unites people from every walk of life, fostering a
+          supportive ecosystem where everyone, regardless of their journey, feels heard and understood. Together, we
+          navigate the complexities of mental health, embracing the power of collective wisdom and forging connections
+          that transcend boundaries. In this dynamic network, each voice adds a unique hue to our shared experiences,
+          making Brainstorm a vibrant and compassionate hub for all.
+        </p>
+      </div>
+      <div class="col-6">
+        <img src="Images/5235.jpg" alt="">
+      </div>
+    </div>
+
+    <div class="row block social-act">
+      <div class="col-6">
+        <img src="Images/10-150ppp.jpg" alt="">
+      </div>
+      <div class="col-6" style="padding-right: 100px;">
+        <h2 class="abt-head" style="margin-top: 70px;">Our Social Activities</h2>
+        <p>Engaging in social activities is a vital component of maintaining good mental health. Meaningful interactions
+          with others foster a sense of connection, reducing feelings of loneliness and isolation. Group activities
+          provide a support system, stimulate the release of happiness hormones, and offer a platform for sharing
+          experiences, contributing to improved emotional resilience and well-being.</p><br><br>
+        <h3 style="color:forestgreen">We have successfully done 100,000+ Social Activities all over the world</h3>
+        <ul class="no-bullets" style="margin-left: 120px;">
+          <li class="sci-act-li">
+            <img src="Images/icons/park_1330855.png" class="sc-act-icon" alt="">
+            50,000+ Tree Panting Programs
+          </li>
+          <li class="sci-act-li">
+            <img src="Images/icons/island_4617270.png" class="sc-act-icon" alt="">
+            10,000+ Beach Cleanup Programs
+          </li>
+          <li class="sci-act-li">
+            <img src="Images/icons/building_1130150.png" class="sc-act-icon" alt="">
+            30,000+ City Cleaup Programs
+          </li>
+        </ul>
+        <p><button class="btn btn-outline-success">Learn More</button></p>
+      </div>
+    </div>
+
+    <div class="row block mental-awareness">
+      <div class="col-6 abt-text-col" style="padding-left: 100px;">
+        <h2 class="abt-head">Mental Health Awareness</h2>
+        <p>Mental Health Awareness is pivotal for breaking down stigma and creating a society where individuals feel
+          empowered to prioritize and address their mental well-being. By promoting understanding and open
+          conversations, awareness initiatives foster early intervention, support, and a culture of compassion.
+          Recognizing the importance of mental health not only benefits individuals but contributes to the overall
+          resilience and health of communities. It's a fundamental step toward building a society that values and
+          supports the mental well-being of everyone.</p><br><br>
+        <h4 style="text-align: center; color: darkolivegreen;">"We have sown seeds of compassion, watered the soil with
+          understanding, and nurtured the delicate shoots of empathy"</h4>
+        <ul class="no-bullets" style="margin-left: 50px;">
+          <li class="sci-act-li">
+            <img src="Images/icons/presentation_1376419.png" class="sc-act-icon" alt="">
+            5,000+ Physical & Online Lectures about Mental Health
+          </li>
+          <li class="sci-act-li">
+            <img src="Images/icons/brain_3612559.png" class="sc-act-icon" alt="">
+            Provide 1,000+ Resources about Mental Health
+          </li>
+          <li class="sci-act-li">
+            <img src="Images/icons/coaching_6528871.png" class="sc-act-icon" alt="">
+            1,000+ Couching & Training Programs for Psychiatrists
+          </li>
+        </ul>
+        <p><button class="btn btn-outline-success">Learn More</button></p>
+      </div>
+      <div class="col-6">
+
+      </div>
+    </div>
+
+    <div class="row block" style="padding-top: 100px;">
+      <div class="col-6">
+        <img src="Images/6673.jpg" alt="">
+      </div>
+      <div class="col-6" style="padding-right: 100px;">
+        <h2 class="abt-head">Our Achievements</h2>
+        <p>Our achievements speak volumes about our dedication and teamwork. Through unwavering commitment and
+          innovation, we've reached milestones that reflect our collective success. Each accomplishment is a testament
+          to our resilience and sets the stage for future growth. Together, we celebrate these victories and look ahead
+          to a future marked by continued success.</p>
+        <h4 style="color:goldenrod; text-align: center;">Our Biggest Achievement is "YOU"</h4>
+        <ul class="no-bullets" style="margin-left: 100px;">
+          <li class="sci-act-li">
+            <img src="Images/icons/trophy_3113025.png" class="sc-act-icon" alt="">
+            Best Mental Health Platform in 2019
+          </li>
+          <li class="sci-act-li">
+            <img src="Images/icons/work_2538530.png" class="sc-act-icon" alt="">
+            Best Social Working Organization in 2020
+          </li>
+        </ul>
+        <p><button class="btn btn-outline-warning">Learn More</button></p>
+      </div>
+    </div>
+
+    <div id="About-section2" class="">
+      <div class="row" style="padding-top: 50px; margin-bottom: 50px;">
+        <h1 class="headText block"> Our Psychiatrists </h1>
+      </div>
+
+      <div class="phy row">
+        <div class="col-6" style="padding-left: 50px;">
+          <div class="card card-physiyologists block">
+            <div class="row g-0">
+              <div class="col-md-6">
+                <div class="card-body card-physiyologists-content">
+                  <h5 class="card-title">Dr. Marcel de Roos</h5>
+                  <p class="card-text">Psychologist PhD, the Netherlands with more than 30 years of experience. Founder,
+                    Counselling Psychologist and Clinical Hypnotherapist at the Institute of Mental Health (IMH)</p>
+                  <p class="sc-icons">
+                  <ul class="sci">
+                    <li>
+                      <a href="#"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa fa-linkedin"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa fa-instagram"></i></a>
+                    </li>
+                    </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="image-zoom-container">
+                  <img src="php/uploads/psychologist-colombo.jpg" class="img-physiyologists" alt="...">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-physiyologists block">
+            <div class="row g-0">
+              <div class="col-md-6">
+                <div class="card-body card-physiyologists-content">
+                  <h5 class="card-title">Dr. Marcel de Roos</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                    additional content. This content is a little bit longer.</p>
+                  <p class="sc-icons">
+                  <ul class="sci">
+                    <li>
+                      <a href="#"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa fa-linkedin"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa fa-instagram"></i></a>
+                    </li>
+                    </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="image-zoom-container">
+                  <img src="php/uploads/psychologist-colombo.jpg" class="img-physiyologists" alt="...">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-physiyologists block">
+            <div class="row g-0">
+              <div class="col-md-6">
+                <div class="card-body card-physiyologists-content">
+                  <h5 class="card-title">Dr. Marcel de Roos</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                    additional content. This content is a little bit longer.</p>
+                  <p class="sc-icons">
+                  <ul class="sci">
+                    <li>
+                      <a href="#"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa fa-linkedin"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa fa-instagram"></i></a>
+                    </li>
+                  </ul>
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="image-zoom-container">
+                  <img src="php/uploads/psychologist-colombo.jpg" class="img-physiyologists" alt="...">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6" style="padding-left: 100px; margin-top: 250px;">
+          <div class="card card-physiyologists block">
+            <div class="row g-0">
+              <div class="col-md-6">
+                <div class="card-body card-physiyologists-content">
+                  <h5 class="card-title">Dr. Marcel de Roos</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                    additional content. This content is a little bit longer.</p>
+                  <p class="sc-icons">
+                  <ul class="sci">
+                    <li>
+                      <a href="#"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa fa-linkedin"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa fa-instagram"></i></a>
+                    </li>
+                  </ul>
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="image-zoom-container">
+                  <img src="php/uploads/psychologist-colombo.jpg" class="img-physiyologists" alt="...">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-physiyologists block">
+            <div class="row g-0">
+              <div class="col-md-6">
+                <div class="card-body card-physiyologists-content">
+                  <h5 class="card-title">Dr. Marcel de Roos</h5>
+                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                    additional content. This content is a little bit longer.</p>
+                  <p class="sc-icons">
+                  <ul class="sci">
+                    <li>
+                      <a href="#"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa fa-linkedin"></i></a>
+                    </li>
+                    <li>
+                      <a href="#"><i class="fa fa-instagram"></i></a>
+                    </li>
+                  </ul>
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="image-zoom-container">
+                  <img src="php/uploads/psychologist-colombo.jpg" class="img-physiyologists" alt="...">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="About-section3" class="block" style="padding-top: 100px;">
+      <div class="row">
+        <h1 class="headText block">Our Technical Team</h1>
+      </div>
+
+      <div class="testimotionals" style="margin-left: 50px;">
+        <div class="card">
+          <div class="layer">
+          </div>
+          <div class="content">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam iusto ea tenetur quas facere minima
+              obcaecati mollitia sed ipsum quod, eius repellat nihil quos. Saepe ipsa veritatis magni voluptates
+              voluptatum.</p>
+            <div class="image">
+              <img width="100px" src="Images/ash.jpg" alt="">
+            </div>
+            <div class="details">
+              <h2> Ashan Avishka <br> <span>Backend developer</span></h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimotionals">
+        <div class="card">
+          <div class="layer">
+          </div>
+          <div class="content">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam iusto ea tenetur quas facere minima
+              obcaecati mollitia sed ipsum quod, eius repellat nihil quos. Saepe ipsa veritatis magni voluptates
+              voluptatum.</p>
+            <div class="image">
+              <img width="100px"
+                src="https://vignette.wikia.nocookie.net/supernatural-diaries/images/b/b2/Cara-delevingne-profile.jpg/revision/latest?cb=20140217060511"
+                alt="">
+            </div>
+            <div class="details">
+              <h2> Someone famous <br> <span>Backend developer</span></h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimotionals">
+        <div class="card">
+          <div class="layer">
+          </div>
+          <div class="content">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam iusto ea tenetur quas facere minima
+              obcaecati mollitia sed ipsum quod, eius repellat nihil quos. Saepe ipsa veritatis magni voluptates
+              voluptatum.</p>
+            <div class="image">
+              <img width="100px"
+                src="https://vignette.wikia.nocookie.net/supernatural-diaries/images/b/b2/Cara-delevingne-profile.jpg/revision/latest?cb=20140217060511"
+                alt="">
+            </div>
+            <div class="details">
+              <h2> Someone famous <br> <span>Backend developer</span></h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimotionals">
+        <div class="card">
+          <div class="layer">
+          </div>
+          <div class="content">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam iusto ea tenetur quas facere minima
+              obcaecati mollitia sed ipsum quod, eius repellat nihil quos. Saepe ipsa veritatis magni voluptates
+              voluptatum.</p>
+            <div class="image">
+              <img width="100px"
+                src="https://vignette.wikia.nocookie.net/supernatural-diaries/images/b/b2/Cara-delevingne-profile.jpg/revision/latest?cb=20140217060511"
+                alt="">
+            </div>
+            <div class="details">
+              <h2> Someone famous <br> <span>Backend developer</span></h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer section start -->
+    <div id="About-section4" class="block">
+      <div class="footer row">
+
+        <div class="col-3 footer-col">
+          <h3 class="footer-head">Brainstorm</h3>
+          <hr>
+          <p>Brainstorm is a revolutionary platform dedicated to transforming mental health support through innovative
+            approaches and personalized care.</p>
+          <div class="signature" style="padding-top: 10px;">
+            <p><img src="Images/logo7.png" style="width:auto; height: 150px;"></p>
+          </div>
+          <ul class="no-bullets">
+            <li class="hover-pop" style="margin-bottom: 7px;">
+              <a href="https://gmail.com" class="txt-dec-non" target="_blank"><span class="icon-envelope con-icon"
+                  style="font-size: 17px;"></span><span class="contact-dt hover-pop">Brainstorm009@gmail.com</span></a>
+            </li>
+            <li class="hover-pop">
+              <a href="" class="txt-dec-non" target="_blank"><span class="icon-phone con-icon"
+                  style="font-size: 17px;"></span><span class="contact-dt hover-pop">(+002) 22446688</span></a>
+            </li>
+          </ul>
+          <ul class="no-bullets d-flex">
+            <li class="hover-pop"><a href="https://instagram.com" class="txt-dec-non" target="_blank"><span
+                  class="icon-instagram sci-icon"></span></a></li>
+            <li class="hover-pop"><a href="https://twitter.com" class="txt-dec-non" target="_blank"><span
+                  class="icon-twitter sci-icon"></span></a></li>
+            <li class="hover-pop"><a href="https://facebook.com" class="txt-dec-non" target="_blank"><span
+                  class="icon-facebook sci-icon"></span></a></li>
+            <li class="hover-pop"><a href="https://pinterest.com" class="txt-dec-non" target="_blank"><span
+                  class="icon-pinterest sci-icon"></span></a></li>
+            <li class="hover-pop"><a href="https://linkedin.com" class="txt-dec-non" target="_blank"><span
+                  class="icon-linkedin sci-icon"></span></a></li>
+          </ul>
+        </div>
+
+        <div class="col-3 footer-col">
+          <h3 class="footer-head">Community</h3>
+          <hr>
+          <p>There are over 100,000+ Brainstorm community over 42 countries.</p>
+          <img src="Images/pngfind.com-map-vector-png-3766662.png" style="margin-bottom: 30px;" alt="">
+          <p> Main Countries of Our Communities Surrounded.</p>
+          <div style="margin-top: 20px;">
+            <p>
+              <img src="https://cdn-icons-png.flaticon.com/128/197/197374.png" class="country-icon"
+                data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="United Kingdom"
+                data-bs-custom-class="custom-tooltip">
+              <img src="https://cdn-icons-png.flaticon.com/128/197/197484.png" class="country-icon"
+                data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="United States"
+                data-bs-custom-class="custom-tooltip">
+              <img src="https://cdn-icons-png.flaticon.com/128/197/197571.png" class="country-icon"
+                data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Germany"
+                data-bs-custom-class="custom-tooltip">
+              <img src="https://cdn-icons-png.flaticon.com/128/197/197560.png" class="country-icon"
+                data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="France"
+                data-bs-custom-class="custom-tooltip">
+              <img src="https://cdn-icons-png.flaticon.com/128/197/197375.png" class="country-icon"
+                data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="China"
+                data-bs-custom-class="custom-tooltip">
+              <img src="https://cdn-icons-png.flaticon.com/128/197/197430.png" class="country-icon"
+                data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Canada"
+                data-bs-custom-class="custom-tooltip">
+              <img src="https://cdn-icons-png.flaticon.com/128/197/197593.png" class="country-icon"
+                data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Spain"
+                data-bs-custom-class="custom-tooltip">
+              <img src="https://cdn-icons-png.flaticon.com/128/197/197604.png" class="country-icon"
+                data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Japan"
+                data-bs-custom-class="custom-tooltip">
+              <img src="https://cdn-icons-png.flaticon.com/128/323/323367.png" class="country-icon"
+                data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Australia"
+                data-bs-custom-class="custom-tooltip">
+              <img src="https://cdn-icons-png.flaticon.com/128/9572/9572704.png" class="country-icon" alt="">
+            </p>
+          </div>
+          <p><button class="btn btn-outline-light btn-sm view-more-btn">View All</button></p>
+        </div>
+
+        <div class="col-3 footer-col">
+          <h3 class="footer-head">Collaborations</h3>
+          <hr>
+          <p>There are over 50+ world wide organizations collabrate with us.</p>
+          <ul class="no-bullets" style="row-gap: 10px;">
+            <li class="org-li hover-pop">
+              <img src="Images/icons/who_logo.jpg" class="org-icon" alt="">
+              World Health Organization
+            </li>
+            <li class="org-li hover-pop">
+              <img src="Images/icons/secPcMLh_400x400.jpg" class="org-icon" alt="">
+              <p style="margin-left: 65px; margin-top: -40px; text-align: left;">American Foundation for Suicide
+                Prevention</p>
+            </li>
+            <li class="org-li hover-pop">
+              <img src="Images/icons/nami.logo_.jpg" class="org-icon" alt="">
+              <p style="margin-left: 65px; margin-top: -40px; text-align: left;">National Alliance on Mental <br>
+                Illness </p>
+            </li>
+            <li class="org-li hover-pop">
+              <img src="Images/icons/MHA.png" class="org-icon" alt="">
+              Mental Health America
+            </li>
+            <li class="org-li hover-pop">
+              <img src="Images/icons/233041_1348230.png" class="org-icon" alt="">
+              Active Minds
+            </li>
+          </ul>
+          <p><button class="btn btn-outline-light btn-sm view-more-btn" style="margin-top: -20px;">View All</button></p>
+        </div>
+
+        <div class="col-3 footer-col">
+          <h3 class="footer-head">Contributions</h3>
+          <hr>
+          <ul>
+            <li>
+              We have contributed our Counselling services and lecturing for Mental Health Awareness to over 100+
+              government and non-government places globaly.
+            </li>
+            <li style="margin-top: 20px;">
+              We have contributed 50,000+ projects when they requested our contribution.
+            </li>
+          </ul>
+          <p><button class="btn btn-outline-light btn-sm view-more-btn">Request Our Contribution</button></p>
+        </div>
+
+        <div class="col-12">
+          <hr>
+          <p>© 2019—2023 All Rights Reserved.</p>
+        </div>
+
+      </div>
+      <!-- footer section end -->
+
+  </section>
+  <!-- about section end -->
+
+
+
+
+
+  <!-- Login window start -->
+  <div id="popup-container-login">
+    <div id="popup-content-login">
+      <button type="button" id="login-close-button" class="btn-close" aria-label="Close"
+        style="margin-left: 355px; margin-top: 5px;"></button>
+      <p><img src="Images/logo7.png" style="width:auto; height: 100px; margin-top: -10px; margin-bottom: 50px;"></p>
+      <form id="login-form">
+        <div class="form-group">
+          <input class="form-control form-control-sm" id="user" type="text" name="username" placeholder="">
+          <label id="lblUN" for="myInput" class="label-text">
+            <i class="icon-user" style="font-size: 20px; margin-right: 10px;"></i>
+            user name
+          </label><br>
+        </div>
+        <div class="form-group">
+          <input class="form-control form-control-sm" id="pass" type="password" name="password" placeholder="">
+          <label id="lblPW" for="myInput" class="label-text">
+            <i class="icon-lock" style="font-size: 20px; margin-right: 10px;"></i>
+            password
+          </label><br>
+        </div>
+
+        <div class="btn-group" role="group" aria-label="Basic radio toggle button group" style="margin-top: 20px;">
+          <input type="radio" class="btn-check" id="radio-patient" name="userRole" value="patient" autocomplete="off"
+            checked>
+          <label class="btn" for="radio-patient" style="margin-right: 7px;">Patient</label>
+          <input type="radio" class="btn-check" id="radio-doctor" name="userRole" value="doctor" autocomplete="off">
+          <label class="btn" for="radio-doctor">Doctor</label>
+        </div>
+
+        <p type="button" id="forget-PW">forgot password?</p>
+        <input class="btn btn-primary lg-btn" type="submit" value="Login">
+        <button type="button" id="popup-button-sign" class="btn btn-outline-dark newAccBtn">Create an Account</button>
+      </form>
+
+    </div>
+  </div>
+  <!-- Login window end -->
+
+  <!-- Sign-in window start -->
+  <div id="popup-container-sign">
+    <div id="popup-content-sign">
+      <button type="button" id="signin-close-button" class="btn-close" aria-label="Close"
+        style="margin-left: 355px; margin-top: 5px;"></button>
+      <p><img src="Images/logo7.png" style="width:auto; height: 100px; margin-top: -10px; margin-bottom: 20px;"></p>
+
+      <div id="form-1">
+        <div class=" form-group">
+          <input type="text" class="form-control form-control-sm f1-inp" id="name1" name="first_name" placeholder=""
+            required>
+          <label id="lblname1" for="myInput" class="label-text">First name</label>
+          <div class="invalid-feedback invalid-feedback-form1">
+            Please enter valid name
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 30px;">
+          <input type="text" class="form-control form-control-sm f1-inp" id="name2" name="last_name" placeholder=""
+            required>
+          <label id="lblname2" for="myInput" class="label-text">Last name</label>
+          <div class="invalid-feedback invalid-feedback-form1">
+            Please enter valid name
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 30px;">
+          <input type="text" id="dob" class="datepicker form-control form-control-sm f1-inp" name="dob" placeholder=""
+            required>
+          <label id="lbldob" for="myInput" class="label-text">Birthday</label>
+          <div class="invalid-feedback invalid-feedback-form1">
+            Please enter valid date
+          </div>
+        </div>
+
+        <div class=" form-group" style="margin-top: 30px;">
+          <select id="cmbgender" class="form-control form-control-sm f1-inp" name="gender">
+            <option selected disabled value="">Choose...</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+          <label id="lblgender" for="myInput" class="label-text">Gender</label>
+          <div class="invalid-feedback invalid-feedback-form1">
+            Please enter valid gender
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 30px;">
+          <input type="number" class="form-control form-control-sm f1-inp" id="age" name="age" placeholder="" required>
+          <label id="lblage" for="myInput" class="label-text">Age</label>
+          <div class="invalid-feedback invalid-feedback-form1">
+            Please enter valid age (between 15 to 120)
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 30px;">
+          <input type="text" class="form-control form-control-sm f1-inp" id="contactno1" name="contact1" placeholder=""
+            required>
+          <label id="lblcontact1" for="myInput" class="label-text">Your contact number</label>
+          <div class="invalid-feedback invalid-feedback-form1">
+            Please enter valid contact number
+          </div>
+        </div>
+
+        <p style="margin-top: 50px;">
+          <button type="reset" class="btn signup-btn" id="back-button" style="margin-right: 10px;">Back</button>
+          <button id="next-form2" class="btn signup-btn">Next</button>
+        </p>
+      </div>
+
+      <div id="form-2" class="signup-subform" style="display: none; margin-top: 50px; z-index: 5;">
+        <div class="form-group">
+          <input type="email" class="form-control form-control-sm " id="email" name="email" placeholder="" required>
+          <label id="lblemail" for="myInput" class="label-text">E-mail address</label>
+          <div class="invalid-feedback">
+            Please enter valid email address
+          </div>
+          <button id="sendCode-btn" class="btn btn-outline-primary" style="margin-top: 20px;">Verify Your
+            E-mail</button>
+          <p id="inUse" class="inUse">Email You Entered Already in Use.</p>
+        </div>
+
+        <div class="form-group" id="otp-code" style="margin-top: 30px; display: none;">
+          <p style="margin-bottom: 40px;">The OTP code will send to your email address. Please check your email.</p>
+          <input type="text" class="form-control form-control-sm" id="otp" placeholder="" required>
+          <label id="lblotp" for="myInput" class="label-text" style="margin-top: 90px;">Verification Code</label>
+          <span id="timer"></span>
+          <div class="invalid-feedback">
+            Invalid verification code
+          </div>
+        </div>
+
+        <p style="margin-top: 50px;">
+          <button type="reset" class="btn signup-btn" id="back-form1" style="margin-right: 10px;">Back</button>
+          <button id="next-form3" class="btn signup-btn">Next</button>
+        </p>
+      </div>
+
+      <div id="form-3" class="signup-subform" style="display: none;">
+        <div class="form-group" style="margin-top: 30px;">
+          <input type="text" class="form-control form-control-sm f-inp" id="un" name="username" placeholder=""
+            required>
+          <label id="lblun" for="myInput" class="label-text">user name</label>
+          <div class="invalid-feedback invalid-feedback-form-f">
+            Please enter a valid user-name
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 30px;">
+          <input type="password" class="form-control form-control-sm f-inp" id="pw" name="password" placeholder=""
+            required>
+          <label id="lblpw" for="myInput" class="label-text">password</label>
+          <div class="invalid-feedback invalid-feedback-form-f">
+            Please enter more than 5 charaters and atleast one number
+          </div>
+          <div class="valid-feedback">
+            Strong password
+          </div>
+        </div>
+
+        <p id="inUse-unpw" class="inUse">Try different Username or Password</p>
+
+        <div class="form-check" style="margin-top: 50px;">
+          <input class="form-check-input" type="checkbox" id="gridCheck" required>
+          <label class="form-check-label" for="gridCheck">
+            Agree to all conditions in this website.
+          </label>
+          <div class="invalid-feedback invalid-feedback-form-f">
+            Please enter more than 5 charaters and atleast one number
+          </div>
+        </div>
+
+        <p style="margin-top: 50px;">
+          <button type="reset" class="btn signup-btn" id="back-form2" style="margin-right: 10px;">Back</button>
+          <button id="final-submit" class="btn signup-btn">Next</button>
+        </p>
+      </div>
+
+      <div id="form-success" class="signup-subform success-form">
+        <h4 class="success-text">Your Account Created Successfully.</h4>
+        <button id="login-btn2" class="btn signup-btn">Login</button>
+      </div>
+
+    </div>
+  </div>
+  <!-- Sign-in window end -->
+
+
+  <!-- start pw reset container -->
+  <div id="popup-container-resetPW">
+    <div id="popup-content-resetPW">
+
+      <p>Please enter your email address which used to create your brainstorm account. Your email is <span id = "sysemail"></span></p>
+      <div class="form-group" style="margin-top: 40px; text-align: center;">
+        <input type="email" class="form-control form-control-sm" id="RSemail" name="email" placeholder="" required>
+        <label id="lblemail" for="myInput" class="label-text">E-mail address</label>
+        <div class="invalid-feedback">
+          Please enter valid email address
+        </div>
+        <button id="sendCode-btn2" class="btn btn-outline-primary" style="margin-top: 20px;">Verify Your E-mail</button>
+      </div>
+
+      <div class="form-group" id="otp-code2" style="margin-top: 30px; display: none;">
+        <p style="margin-bottom: 40px;">The OTP code will send to your email address. Please check your email.</p>
+        <input type="text" class="form-control form-control-sm" id="otp2" placeholder="" required>
+        <label id="lblotp2" for="myInput" class="label-text" style="margin-top: 90px;">Verification Code</label>
+        <P><span id="timer2"></span></P>
+        <p><button class="btn btn-outline-primary" id="verifyOTP">verify OTP</button></p>
+        <div class="invalid-feedback">
+          Invalid verification code
+        </div>
+      </div>
+
+      <div class="form-group" id="new-pw" style="margin-top: 30px; display: none;">
+        <input type="password" class="form-control form-control-sm fl-inp" id="pw2" name="password" placeholder=""
+          required>
+        <label id="lblpw" for="myInput" class="label-text">password</label>
+        <div class="invalid-feedback invalid-feedback-form-f">
+          Please enter more than 5 charaters and atleast one number
+        </div>
+        <div class="valid-feedback">
+          Strong password
+        </div>
+        <p><button class="btn btn-outline-primary" id="createNewPw">verify OTP</button></p>
+      </div>
+      
+    </div>
+  </div>
+  <!-- end pw reset container -->
+
+
+  <!-- start Success message container -->
+  <div id="success-container" class="success-container">
+    <div id="success-message" class="success-message">
+      <!-- Your success message content here -->
+      Form submitted successfully!
+    </div>
+  </div>
+  <!-- end Success message container -->
+
+  <!--Java Script-->
+  <script src="JS/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+</html>

@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>patient potral</title>
+  <link rel="stylesheet" type="text/css" href="CSS/patient.css" />
+
+  <!--Linked Bootstrap CSS-->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+  <!--Linked jquery CSS-->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- Include js PDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.debug.js"></script>
+
+  <!-- Include jquery DatePicker-->
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <!-- Include icomoon icon pack-->
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+
+  <!-- Include tooltip pack-->
+  <link rel="stylesheet" href="https://unpkg.com/@popperjs/core@2.10.2/dist/umd/popper.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/tippy.js@6.3.2/dist/tippy.css">
+
+</head>
+
+<body>
+  <!-- navbar section start -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-2">
+        <div class="pop">
+          <div class="container">
+            <a href="#" class="toggleBox" id="navIcon">
+              <span class="icon"></span>
+            </a>
+            <ul class="navItems">
+              <li>
+                <a href="#" id="popup-button-chat">
+                  <i class="fa fa-comments" style="--i:1"></i>
+                  <span style="--g:1">Chat</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" id="popup-button-test">
+                  <i class="fa fa-heartbeat" style="--i:2;"></i>
+                  <span style="--g:2">test</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" id="popup-button-progress">
+                  <i class="fa fa-line-chart" style="--i:3"></i>
+                  <span style="--g:3">progress</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" id="popup-button-report">
+                  <i class="fa fa-list-alt" style="--i:1"></i>
+                  <span style="--g:1">Report</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" id="popup-button-settings">
+                  <i class="fa fa-cogs" style="--i:5"></i>
+                  <span style="--g:5">settings</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" id="popup-button-logout">
+                  <i class="fa fa-sign-out" style="--i:6"></i>
+                  <span style="--g:6">logout</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-3">
+        <div class="user">
+          <h3 class="userName" id="userName-heading">
+            Hi, Ashan!
+          </h3>
+          <p style="text-align: left; margin-top: -5px;">Let's track your mental health daily.</p>
+        </div>
+      </div>
+
+      <div class="col-5 d-flex">
+        <a id="brand" class="navbar-brand" href="#"><img src="Images/logo7.png" style="margin-left: 50px; height: 80px;"
+            alt=""></a>
+        <form class="d-flex" role="search" id="search">
+          <input class="form-control me-2 rounded-pill" type="search" placeholder="Search" aria-label="Search"
+            style="border-color: blue;">
+          <button class="btn btn-primary rounded-pill" type="submit">Search</button>
+        </form>
+      </div>
+      <div class="col-2">
+        <a href="#" id="popup-button-notification">
+          <img id="notification" src="Images/icons/icons8-notification-66.png">
+        </a>
+        <a href="#" id="popup-button-profile">
+          <img src="" id="profile" class="float-end">
+        </a>
+      </div>
+    </div>
+    <!-- navbar section end -->
+
+
+    <!-- dashboard section start -->
+    <div class="row content">
+      <div class="col-2 left">
+        <div class="card check">
+          <img
+            src="https://img.freepik.com/free-vector/doctor-patient-pcr-nasal-swab-test_23-2148548275.jpg?w=740&t=st=1687853627~exp=1687854227~hmac=c821e29b2d71bb3a983c6c705e70f3df4ffb50470c70923d90d6827dbe8686b9"
+            class="card-img-top" alt="...">
+          <div class="card-body"
+            style="background-image: linear-gradient(to bottom, white, #e9eb82af); border-radius:20px ;">
+            <h3 style="text-align: center;">Let's check your mental state</h3>
+            <p style="text-align: center;">You can check your current mental condition ease and quick. click the check
+              button bellow.</p>
+            <button class="btn btn-primary rounded-pill state-check" id="state-check">Check</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-7 middle">
+        <div class="row appointments">
+          <strong>Upcomming appointments</strong>
+          <hr>
+
+          <div class="col-4">
+            <div class="ancheck card">
+              <img src="Images/ODIwMDU5NDM5.jpg" style="border-radius: 20px;">
+              <div class="card-body">
+                <p style="text-align: left; margin-top: -20px;"><strong>Annual checkup</strong><br>06/19/2023</p>
+                <p class="checkicons">
+                  <i class="fa fa-chevron-circle-right go" type="button" id="popup-button-checkup"
+                    style="margin-right: 10px;"></i>
+                  <i class="fa fa-plus-circle add" type="button"></i>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-8">
+            <div class="d-flex">
+
+              <div class="d-flex" id="havDoc" >
+                <img class="doctor" src="Images/ashan.jpg" type="button" id="popup-button-doctor-info">
+                <p style="margin-left: 10px;"><b><span id="doc-name"></span></b><br><span id="job-title"></span></p>
+                <button id="popup-button-doctor-chat" class="btn btn-success rounded-pill btn-chat">Chat</button><br>
+                <button class="btn btn-success rounded-pill btn-chat"
+                  id="popup-button-doctor-video-chat">Session</button>
+              </div>
+
+              <div class="havtDoc" id="havtDoc" style="display: none;">
+                <img src="Images/icons/alert_6711413.png" class="shedule" alt="">
+                <p>You haven't initiate a doctor yet.<br> Click here to choose a doctor.</p>
+                <button class="btn btn-primary rounded-pill chooseDocBtn" id="popup-button-choose-doctor">Choose
+                  Doctor</button>
+              </div>
+
+            </div>
+
+            <div class="row">
+              <div class="nxtTherapy d-flex" id="nxtTherapy">
+                <div class="col-6">
+                  <strong>Next therapy session</strong><br><br>
+                  <a href="#">
+                    <img style="margin-top: -20px;" class="shedule" src="Images/icons/calendar_282803.png">
+                    <span class="dateTime" id="dateTag">22 June 2023</span>
+                  </a><br>
+                  <a href="#">
+                    <img style="margin-top:5px;" class="shedule" src="Images/icons/alarm-clock_680375.png">
+                    <span class="dateTime" id="timeTag">9.00 p.m.</span>
+                  </a>
+                </div>
+                <div class="col-6">
+                  <strong>Doctor's messages for next session</strong><br><br>
+                  <a class="dateTime" id="popup-button-doctors-test" type="button">
+                    <img style="margin-top:5px;" class="before" src="Images/icons/magnifying-glass_1593649.png">
+                    <span>doctor's test</span>
+                  </a>
+                  <img id="pending-icon" class="pending" src="Images/icons/history_10472527.png">
+                  <hr>
+                  <img id="popup-button-add-notification" class="pending" type="button"
+                    src="Images/icons/bell_5649276.png">
+                  <img id="popup-button-add-calender" class="pending" type="button"
+                    src="Images/icons/calendar_4461252.png">
+                  <img id="popup-button-therapy-settings" class="pending" type="button"
+                    src="Images/icons/gear_4314558.png">
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+          <strong>Patient activities</strong>
+          <hr>
+          <div class="col-6">
+            <div class="skill d-flex">
+              <div class="col-7">
+                <div class="back d-flex">
+                  <div class="outer">
+                    <div class="inner">
+                      <div id="number"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-5">
+                <strong>Daily Progress</strong>
+                <hr>
+                <p style="text-align: left;">Keep improving your mental health</p>
+                <button class="btn btn-primary rounded-pill" id="popup-button-daily-activities">Complete daily
+                  activities</button>
+              </div>
+
+              <svg id="svg-def" width="160px" height="160px">
+                <defs>
+                  <linearGradient id="progressGradient" gradientTransform="rotate(90)">
+                    <stop offset="0%" stop-color="#0099FF" />
+                    <stop offset="100%" stop-color="#9900FF" />
+                  </linearGradient>
+                </defs>
+                <circle class="circle" cx="80" cy="80" r="70" stroke-linecap="round" />
+              </svg>
+
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="chart">
+              <div class="bar" id="d-bar1" style="height: 100%; background-color: #a559d123;"><span id="monthTag-0"
+                  class="pDate2">Jul</h6>
+              </div>
+              <div class="bar" id="d-bar2" style="height: 75%; background-color:  #a559d15c;"><span id="monthTag-1"
+                  class="pDate2">Aug</h6>
+              </div>
+              <div class="bar" id="d-bar3" style="height: 30%; background-color:  #a559d193;"><span id="monthTag-2"
+                  class="pDate2">Sep</span></div>
+              <div class="bar" id="d-bar4" style="height: 40%; background-color:  #a559d1c6;"><span id="monthTag-3"
+                  class="pDate2">Oct</span></div>
+              <div class="bar" id="d-bar5" style="height: 75%; background-color:  #a559d1c6; "><span id="monthTag-4"
+                  class="pDate2">Nov</span></div>
+              <div class="bar" id="d-bar6" style="height: 10%"><span id="monthTag-5" class="pDate2">Dec</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-3 right" style="margin-top: -10px;">
+        <div class="row">
+          <strong>List of appointments</strong>
+          <hr>
+
+          <div class="contianer">
+            <div class="calendar">
+              <div class="calendar-header">
+                <span class="month-picker" id="month-picker"> May </span>
+                <div class="year-picker" id="year-picker">
+                  <span class="year-change" id="pre-year">
+                    <pre><</pre>
+                  </span>
+                  <span id="year">2020 </span>
+                  <span class="year-change" id="next-year">
+                    <pre>></pre>
+                  </span>
+                </div>
+              </div>
+
+              <div class="calendar-body">
+                <div class="calendar-week-days">
+                  <div>Sun</div>
+                  <div>Mon</div>
+                  <div>Tue</div>
+                  <div>Wed</div>
+                  <div>Thu</div>
+                  <div>Fri</div>
+                  <div>Sat</div>
+                </div>
+                <div class="calendar-days">
+                </div>
+              </div>
+              <div class="calendar-footer">
+              </div>
+              <div class="date-time-formate">
+                <div class="day-text-formate">TODAY</div>
+                <div class="date-time-value">
+                  <div class="time-formate">02:51:20</div>
+                  <div class="date-formate">23 - july - 2022</div>
+                </div>
+              </div>
+              <div class="month-list"></div>
+            </div>
+          </div>
+
+          <!------------------------------ Event Modal start-------------------------------------->
+          <div id="event-modal-container">
+            <div class="event-modal" id="event-modal">
+              <h4 style="text-align: center;">Add Event</h4>
+              <div class="row d-flex">
+                <div class="col-6">
+                  <div class="d-flex">
+                    <label>Date:</label>
+                    <input type="text" class="event-input" id="event-date">
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="d-flex">
+                    <label>Time:</label>
+                    <input class="event-input" type="time" id="event-time" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row" style="margin-top: 15px; margin-bottom: 15px;">
+                <div class="d-flex">
+                  <label>Title:</label>
+                  <input type="text" class="event-input" style="width: 340px;" id="event-title" required>
+                </div>
+              </div>
+
+              <label for="event-description">Description:</label>
+              <textarea id="event-description" style="background-color: #E4F1FF;" rows="4"></textarea>
+
+              <div class="d-flex">
+                <button id="save-event" type="submit" class="btn btn-primary rounded-pill"
+                  style="margin-left: 90px; margin-right: 10px;">Save Event</button>
+                <button id="btn-close-event" class="btn btn-primary rounded-pill">Cancle</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!------------------------------ Event Modal end-------------------------------------->
+
+        <!--event manager section start -->
+        <div class="row">
+          <div class="event-manager">
+            <a href="#" id="popup-button-event-manager">
+              <img style="margin-top: -20px;" class="shedule" id="img-EM" src="Images/icons/calendar_10281559.png">
+              <h4 class="EM-title">Event Manager</h4>
+            </a>
+          </div>
+        </div>
+        <!--event manager section end -->
+      </div>
+    </div>
+    <!--dashboard section end -->
+
+    <!-- chat section start -->
+    <div id="popup-container-chat">
+      <div id="popup-content-chat">
+        <div class="chatBot-container">
+          <button class="button clear-chatBot-button clear-chat-icon">
+            <img src="Images/icons/remove_4671213.png" alt="">
+          </button>
+          <button class="button clear-chatBot-button clear-chat-icon">
+            <img src="Images/icons/setting_3926287.png" alt="">
+          </button>
+          <p class="chatBot-bg">
+            <span style="font-size: 30px;">Powered by</span>
+            <img src="Images/logo7.png" alt="">
+          </p>
+          <div class="chatBot-messages">
+            <!---
+            <img src="Images/ashan.jpg" class="userp-img" alt="">
+            <div class="message blue-bg userp">
+              <div class="message-sender">John</div>
+              <div class="message-text">Hey Jane, what's up?</div>
+              <div class="message-timestamp">10:30 AM</div>
+            </div>
+            <img src="Images/icons/moon-rover_9477685.png" class="bot-img" alt="">
+            <div class="message gray-bg bot">
+              <div class="message-sender">Jane</div>
+              <div class="message-text msg-con">Not much, just living the dream. How about you?</div>
+              <div class="message-timestamp">10:35 AM</div>
+            </div>-->
+          </div>
+
+          <form class="chatBot-input-form">
+            <input type="text" class="chatBot-input inp" required placeholder="Type here, Ashan..." />
+            <button type="submit" class="button send-bot-button">Send</button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+    <!-- chat section end -->
+
+    <!-- test section start -->
+    <div id="popup-container-test">
+      <div id="popup-content-test">
+        <div class="d-flex">
+          <div class="testing">
+            <div class="heading" id="test-head-1">ADHD Test</div>
+            <h6 class="intro" id="test-intro-1">Find out if you're experiencing the most common symptoms of ADHD.</h6>
+            <div class="footer">
+              <button class="btn btn-primary rounded-pill btn-test" value="test1" id="inner-test">Start Test</button>
+            </div>
+          </div>
+          <div class="testing">
+            <div class="heading" id="test-head-2">ADHD Test</div>
+            <h6 class="intro" id="test-intro-2">Find out if you're experiencing the most common symptoms of ADHD.</h6>
+            <div class="footer">
+              <button class="btn btn-primary rounded-pill btn-test" value="test2">Start Test</button>
+            </div>
+          </div>
+          <div class="testing">
+            <div class="heading" id="test-head-3">ADHD Test</div>
+            <h6 class="intro" id="test-intro-3">Find out if you're experiencing the most common symptoms of ADHD.</h6>
+            <div class="footer">
+              <button class="btn btn-primary rounded-pill btn-test" value="test3">Start Test</button>
+            </div>
+          </div>
+          <div class="testing">
+            <div class="heading" id="test-head-4">ADHD Test</div>
+            <h6 class="intro" id="test-intro-4">Find out if you're experiencing the most common symptoms of ADHD.</h6>
+            <div class="footer">
+              <button class="btn btn-primary rounded-pill btn-test" value="test4">Start Test</button>
+            </div>
+          </div>
+          <div class="testing">
+            <div class="heading" id="test-head-5">ADHD Test</div>
+            <h6 class="intro" id="test-intro-5">Find out if you're experiencing the most common symptoms of ADHD.</h6>
+            <div class="footer">
+              <button class="btn btn-primary rounded-pill btn-test" value="test5">Start Test</button>
+            </div>
+          </div>
+          <div class="testing">
+            <div class="heading" id="test-head-6">ADHD Test</div>
+            <h6 class="intro" id="test-intro-6">Find out if you're experiencing the most common symptoms of ADHD.</h6>
+            <div class="footer">
+              <button class="btn btn-primary rounded-pill btn-test" value="test6">Start Test</button>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex" style="margin-top: 20px;">
+          <div class="testing">
+            <div class="heading" id="test-head-7">ADHD Test</div>
+            <h6 class="intro" id="test-intro-7">Find out if you're experiencing the most common symptoms of ADHD.</h6>
+            <div class="footer">
+              <button class="btn btn-primary rounded-pill btn-test" value="test7">Start Test</button>
+            </div>
+          </div>
+          <div class="testing">
+            <div class="heading" id="test-head-8">ADHD Test</div>
+            <h6 class="intro" id="test-intro-8">Find out if you're experiencing the most common symptoms of ADHD.</h6>
+            <div class="footer">
+              <button class="btn btn-primary rounded-pill btn-test" value="test8">Start Test</button>
+            </div>
+          </div>
+          <div class="testing">
+            <div class="heading" id="test-head-9">ADHD Test</div>
+            <h6 class="intro" id="test-intro-9">Find out if you're experiencing the most common symptoms of ADHD.</h6>
+            <div class="footer">
+              <button class="btn btn-primary rounded-pill btn-test" value="test9">Start Test</button>
+            </div>
+          </div>
+          <div class="testing">
+            <div class="heading" id="test-head-10">ADHD Test</div>
+            <h6 class="intro" id="test-intro-10">Find out if you're experiencing the most common symptoms of ADHD.</h6>
+            <div class="footer">
+              <button class="btn btn-primary rounded-pill btn-test" value="test10">Start Test</button>
+            </div>
+          </div>
+          <div class="testing">
+            <div class="heading" id="test-head-11">ADHD Test</div>
+            <h6 class="intro" id="test-intro-11">Find out if you're experiencing the most common symptoms of ADHD.</h6>
+            <div class="footer">
+              <button class="btn btn-primary rounded-pill btn-test" value="test11">Start Test</button>
+            </div>
+          </div>
+          <div class="testing">
+            <div class="heading" id="test-head-12">ADHD Test</div>
+            <h6 class="intro" id="test-intro-12">Find out if you're experiencing the most common symptoms of ADHD.</h6>
+            <div class="footer">
+              <button class="btn btn-primary rounded-pill btn-test" value="test12">Start Test</button>
+            </div>
+          </div>
+        </div>
+        <img src="Images/icons/icons8-close-48.png" class="close-test" type="button" id="close-test-button" alt="">
+      </div>
+    </div>
+    <!-- test section end -->
+
+    <!-- inner test section start -->
+    <div id="popup-container-inner-test">
+      <div id="popup-content-inner-test">
+        <h3 class="Qheading">Question <span id="qNum"></span></h3>
+        <p class="Q" id="qu"></p>
+        <div class="answers d-flex">
+          <button class="btn btn-outline-success rounded-pill btn-ans" value="5">Never</button>
+          <button class="btn btn-outline-success rounded-pill btn-ans" value="10">Rarely</button>
+          <button class="btn btn-outline-success rounded-pill btn-ans" value="15">Sometimes</button>
+          <button class="btn btn-outline-success rounded-pill btn-ans" value="20">Often</button>
+          <button class="btn btn-outline-success rounded-pill btn-ans" value="25">Very Often</button>
+        </div>
+        <div class="progress" role="progressbar" aria-label="Success striped example" aria-valuenow="25"
+          aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar progress-bar-striped bg-success" id="progress-bar" style="width: 0%"></div>
+        </div>
+        <img
+          src="https://img.freepik.com/free-vector/science-laboratory-research-development-work_107791-14968.jpg?w=1380&t=st=1691716632~exp=1691717232~hmac=a70adf68ba29470bf5923bba9e2acbaf989f0118d984e736e68e617b3b0055e9"
+          alt="">
+        <img src="Images/icons/icons8-close-48.png" class="close-inner-test" type="button" id="close-inner-test-button"
+          alt="">
+        <img src="Images/icons/icons8-back-48.png" class="back-to-test" type="button" id="back-to-test-button" alt="">
+      </div>
+    </div>
+    <!-- inner-test section end -->
+
+    <!-- test result section start -->
+    <div id="popup-container-test-result">
+      <div id="popup-content-test-result">
+        <div class="container-fluid results">
+          <h1><span id="testName"></span>Results</h1>
+          <p class="readMe" style="margin-top: -20px;">The questions are based on an evidence-based screening tool but
+            are indicative only and do <br>not form a formal diagnosis</p>
+        </div>
+        <div class="container-fluid recommand">
+          <div id="recommand"></div>
+
+          <div class="readMe" id="read-text" style="margin-top: 30px; color: #a14a84;">
+            <h3 style="text-align: center; color: #812061;">What to do next ?</h3>
+            Don't let your worries and fears control your life. We can help you manage your anxiety through
+            evidence-based treatments and tailored therapeutic approaches.
+            The first step is to speak to a trained professional. Depending on the severity of your symptoms, we may
+            recommend a psychiatric assessment which involves
+            discussing your thoughts, feelings and behaviour to help identify a diagnosis and check for related
+            complications. We will then provide you with a personalised treatment plan that will usually involve talking
+            therapy and may include medication.
+          </div>
+
+        </div>
+
+        <img src="Images/icons/icons8-close-48.png" class="close-test-result" type="button"
+          id="close-test-result-button" alt="">
+
+      </div>
+    </div>
+    <!-- test result section end -->
+
+    <!-- progress section start -->
+    <div id="popup-container-progress">
+      <div id="popup-content-progress">
+        <div class="row">
+          <div class="col-7">
+            <div class="circulerCharts d-flex">
+
+              <div class="col-4">
+                <h6>Weekly Progress</h6>
+                <div class="back d-flex">
+                  <div class="outer">
+                    <div class="inner">
+                      <div id="Wnumber"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-4">
+                <h6>Monthly Progress</h6>
+                <div class="back d-flex">
+                  <div class="outer">
+                    <div class="inner">
+                      <div id="Mnumber"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-4">
+                <h6>Yearly Progress</h6>
+                <div class="back d-flex">
+                  <div class="outer">
+                    <div class="inner">
+                      <div id="Ynumber"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <div class="barchart row">
+              <h5 style="text-align: center; font-weight: 600;">Recently Progress</h5>
+              <div class="chart">
+                <div class="pbar" style="background-color: #618deb22;"><span id="dayTag-0" class="pDate">1st</span>
+                </div>
+                <div class="pbar" style="background-color:  #618deb46;"><span id="dayTag-1" class="pDate">2nd</span>
+                </div>
+                <div class="pbar" style="background-color:  #618deb78;"><span id="dayTag-2" class="pDate">3rd</span>
+                </div>
+                <div class="pbar" style="background-color:  #618deba7;"><span id="dayTag-3" class="pDate">4th</span>
+                </div>
+                <div class="pbar" style="background-color:  #618debda;"><span id="dayTag-4" class="pDate">5th</span>
+                </div>
+                <div class="pbar" style="background-color:  #618deb;"><span id="dayTag-5" class="pDate">6th</span></div>
+                <div class="pbar" style="background-color:  #618deb;"><span id="dayTag-6" class="pDate">7th</span></div>
+                <div class="pbar" style="background-color:  #5081eb;"><span id="dayTag-7" class="pDate">8th</span></div>
+                <div class="pbar" style="background-color:  #3a73ec;"><span id="dayTag-8" class="pDate">9th</span></div>
+                <div class="pbar" style="background-color:  #2866ec;"><span id="dayTag-9" class="pDate">10th</span>
+                </div>
+                <div class="pbar" style="background-color:  #1156ea;"><span id="dayTag-10" class="pDate">11th</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-5">
+            <img
+              src="https://img.freepik.com/free-vector/people-analyzing-growth-charts-illustrated_23-2148865274.jpg?w=740&t=st=1691684675~exp=1691685275~hmac=c03004a2d45f0fdb836ca662a953c4775cb293decc1f72b6ba2c3923e9a4a92a"
+              style="height: 500px;" alt="">
+            <img src="Images/icons/icons8-close-48.png" class="close" type="button" id="close-progress-button" alt="">
+          </div>
+        </div>
+
+        <svg id="svg1" width="160px" height="160px">
+          <defs>
+            <linearGradient id="progressGradient1" gradientTransform="rotate(90)">
+              <stop offset="0%" stop-color="#4C4B16" />
+              <stop offset="100%" stop-color="#FFD700" />
+            </linearGradient>
+          </defs>
+          <circle id="cr1" cx="80" cy="80" r="70" stroke-linecap="round" />
+        </svg>
+
+        <svg id="svg2" width="160px" height="160px">
+          <defs>
+            <linearGradient id="progressGradient2" gradientTransform="rotate(90)">
+              <stop offset="0%" stop-color="#FF2171" />
+              <stop offset="100%" stop-color="#FFD0D0" />
+            </linearGradient>
+          </defs>
+          <circle id="cr2" cx="80" cy="80" r="70" stroke-linecap="round" />
+        </svg>
+
+        <svg id="svg3" width="160px" height="160px">
+          <defs>
+            <linearGradient id="progressGradient3" gradientTransform="rotate(90)">
+              <stop offset="0%" stop-color="#0B666A" />
+              <stop offset="100%" stop-color="#40d4c8" />
+            </linearGradient>
+          </defs>
+          <circle id="cr3" cx="80" cy="80" r="70" stroke-linecap="round" />
+        </svg>
+
+      </div>
+    </div>
+    <!-- progress section end -->
+
+    <!-- report section start -->
+    <div id="popup-container-report">
+      <div id="popup-content-report">
+        <div class="row">
+          <div class="column-container scrollable-column">
+            <div class="col-6">
+
+              <div id="reportContainer"></div>
+
+            </div>
+            <div class="col-6 fixed-column">
+              <img src="Images/wdwq.jpg" alt="" style="height: 350px;">
+
+              <div class="d-flex toggle">
+                <h6>Add dissoder discription</h6>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" role="switch" id="toggleDiscription">
+                </div>
+              </div>
+
+              <div class="d-flex toggle" style="margin-top: -70px;">
+                <h6>Request Doctor's approval</h6>
+                <div class="form-check form-switch" style="margin-left: 116px;">
+                  <input class="form-check-input" type="checkbox" role="switch" id="toggleApproval">
+                </div>
+              </div>
+              <p id="docApprov" class="approval">It will take 1 to 3 days to approve your request</p><br>
+
+              <div class="reportBtns d-flex">
+                <button class="btn btn-primary rounded-pill rpb" id="generateReportBtn"
+                  style="margin-right: 20px;">Generate Report</button>
+                <button class="btn btn-primary rounded-pill rpb" id="generatePdfButton">Download PDF</button>
+              </div>
+            </div>
+            <img src="Images/icons/icons8-close-48.png" class="close-report" type="button" id="close-report-button"
+              alt="">
+            <div class="loading" id="spinner">
+              <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+              <h6>Generating Report...</h6>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- report section end -->
+
+    <!-- settings section start -->
+    <div id="popup-container-settings">
+      <div id="popup-content-settings">
+        <div class="row d-flex">
+          <div class="col-6">
+
+          </div>
+          <div class="col-6">
+            <img
+              src="https://img.freepik.com/free-vector/custom-style-script-website-optimization-coding-software-development-female-programmer-cartoon-character-working-adding-javascript-css-code_335657-2370.jpg?w=740&t=st=1691859469~exp=1691860069~hmac=b0724e4fc0cf2272e1ea3a443f8211b6d1095867793ff723ff3cece50ef1db0a"
+              alt="">
+            <img src="Images/icons/icons8-close-48.png" class="close-settings" type="button" id="close-settings-button"
+              alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- settings section end -->
+
+    <!-- logout section start -->
+    <div id="popup-container-logout">
+      <div id="popup-content-logout">
+        <img src="Images/icons/icons8-warning-48.png" alt="">
+        <h6>Are you sure want to logout this site?</h6>
+        <div class="d-flex" style="margin-top: 20px;">
+          <button class="btn btn-primary rounded-pill" id="loggingout-btn"
+            style="margin-left: 90px; margin-right: 20px;">Logout</button>
+          <button class="btn btn-primary rounded-pill" id="close-logout-button">Cancle</button>
+        </div>
+      </div>
+    </div>
+    <!--logout section end -->
+
+    <!-- profile section start -->
+    <div id="popup-container-profile">
+      <div id="popup-content-profile">
+        <div class="row">
+          <form id="updateDetails">
+            <div class="col-6">
+
+              <div class="d-flex">
+                <img id="display_image" src="">
+                <input class="chooseBtn" name="user_image" type="file" id="image_input" accept="image/*">
+              </div>
+
+              <input type="hidden" class="form-control form-control-sm parTag" id="id" name="id" value="" readonly>
+              <div class="d-flex">
+                <h6 class="tag">First Name</h6>
+                <input type="text" class="form-control form-control-sm parTag" id="name1" name="first_name"
+                  value="Ashan" readonly>
+                <i class="fa fa-pencil edit" id="name1-icon" aria-hidden="true" onclick="editItem(id)"></i>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex">
+                <h6 class="tag">Last Name</h6>
+                <input type="text" class="form-control form-control-sm parTag" id="name2" name="last_name"
+                  value="Avishka" readonly>
+                <i class="fa fa-pencil edit" id="name2-icon" aria-hidden="true" onclick="editItem(id)"></i>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex">
+                <h6 class="tag">Birthday</h6>
+                <input type="text" id="dob" name="datepicker" class="datepicker form-control form-control-sm parTag"
+                  id="dob" name="dob" value="25/02/2001" readonly>
+                <i class="fa fa-pencil edit" id="dob-icon" aria-hidden="true" onclick="editItem(id)"></i>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex">
+                <h6 class="tag">Age</h6>
+                <input type="text" class="form-control form-control-sm parTag" id="age" name="age" value="23" readonly>
+                <i class="fa fa-pencil edit" id="age-icon" aria-hidden="true" onclick="editItem(id)"></i>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex">
+                <h6 class="tag">Gender</h6>
+                <div class="d-flex" id="genclick">
+                  <select id="cmbgender" class="form-control form-control-sm parTag ps" name="gender" readonly>
+                    <option value="Male" selected disabled>Male</option>
+                    <option value="Female" disabled>Female</option>
+                  </select>
+                  <i class="fa fa-pencil edit" id="gender-icon" aria-hidden="true" onclick="editItem(id)"></i>
+                </div>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex">
+                <h6 class="tag">Address</h6>
+                <input type="text" class="form-control form-control-sm parTag" id="address" name="address"
+                  value="118A, Kirinda Puhulwella, Matara" readonly>
+                <i class="fa fa-pencil edit" id="address-icon" aria-hidden="true" onclick="editItem(id)"></i>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex">
+                <h6 class="tag">Email</h6>
+                <input type="text" class="form-control form-control-sm parTag" id="email" name="email"
+                  value="ashanavishka81@gmail.com" readonly>
+                <i class="fa fa-pencil edit" id="email-icon" aria-hidden="true" onclick="editItem(id)"></i>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex">
+                <h6 class="tag">Contact number</h6>
+                <input type="text" class="form-control form-control-sm parTag" id="contactno1" name="contact1"
+                  value="0783467859" readonly>
+                <i class="fa fa-pencil edit" id="con1-icon" aria-hidden="true" onclick="editItem(id)"></i>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex">
+                <h6 class="tag">Third party contact</h6>
+                <input type="text" class="form-control form-control-sm parTag" id="contactno2" name="contact2"
+                  value="0715249452" readonly>
+                <i class="fa fa-pencil edit" id="con2-icon" aria-hidden="true" onclick="editItem(id)"></i>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex">
+                <h6 class="tag">Username</h6>
+                <input type="text" class="form-control form-control-sm parTag" id="un" name="username" value="Ashan"
+                  readonly>
+                <i class="fa fa-pencil edit" id="un-icon" aria-hidden="true" onclick="editItem(id)"></i>
+              </div>
+              <hr style="margin-top: -6px;">
+
+              <div class="d-flex">
+                <h6 class="tag">Password</h6>
+                <div class="d-flex" id="pwclick">
+                  <input type="password" class="form-control form-control-sm parTag ps" id="pw" name="password"
+                    value="reachthefinish1" readonly>
+                  <i class="fa fa-pencil edit" id="pw-icon" aria-hidden="true" onclick="editItem(id)"></i>
+                </div>
+              </div>
+              <hr style="margin-top: -6px;">
+            </div>
+
+            <div class="col-6" style="margin-left: 580px; margin-top: -575px;">
+              <img
+                src="https://img.freepik.com/free-vector/user-verification-unauthorized-access-prevention-private-account-authentication-cyber-security-people-entering-login-password-safety-measures_335657-3530.jpg?w=740&t=st=1691917573~exp=1691918173~hmac=a9cb4b658640ef694a797a44cee9b421061f1209cc8dbe72c4d6090abc32cd5b"
+                style="height: 550px">
+              <img src="Images/icons/icons8-close-48.png" class="close-profile" type="button" id="close-profile-button"
+                alt="">
+
+              <div class="d-flex edit-btns">
+                <button class="btn btn-primary rounded-pill profBtn" type="submit" id="save-button"
+                  style="margin-right: 20px;">Save changes</button>
+                <button class="btn btn-primary rounded-pill profBtn" type="reset" id="discard-button">Discard
+                  changes</button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- profile section end -->
+
+    <!-- notification section start -->
+    <div id="popup-container-notification">
+      <div id="popup-content-notification">
+        <ul class="notification-list" id="notification-list">
+          
+        </ul>
+      </div>
+    </div>
+    <!-- notification section end -->
+
+    <!-- notification section start -->
+    <div id="popup-container-notificationViewer">
+      <div id="popup-content-notificationViewer">
+        <p id="notification-msg"></p>
+      </div>
+    </div>
+    <!-- notification section end -->
+
+    <!-- daily-activities section start -->
+    <div id="popup-container-daily-activities">
+      <div id="popup-content-daily-activities">
+        <div class="col" style="margin-top: 25px;">
+          <div class="act-tag left-tag" type="button" style="margin-left: 40px;">
+            <div class="row">
+              <div class="col-10">
+                <span id="act-1">Talking with friends or relations</span>
+              </div>
+              <div class="col-2">
+                <img id="act-btn-1" type="button" src="Images/icons/icons8-pending-30.png" class="act-status">
+              </div>
+            </div>
+          </div>
+          <div class="act-tag left-tag">
+            <div class="row">
+              <div class="col-10">
+                <span id="act-2">Talking with friends or relations</span>
+              </div>
+              <div class="col-2">
+                <img id="act-btn-2" type="button" src="Images/icons/icons8-pending-30.png" class="act-status">
+              </div>
+            </div>
+          </div>
+          <div class="act-tag left-tag" style="margin-left: 40px;">
+            <div class="row">
+              <div class="col-10">
+                <span id="act-3">Talking with friends or relations</span>
+              </div>
+              <div class="col-2">
+                <img id="act-btn-3" type="button" src="Images/icons/icons8-pending-30.png" class="act-status">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <img
+          src="https://img.freepik.com/free-vector/brain-sides-concept-illustration_114360-13064.jpg?w=740&t=st=1693430615~exp=1693431215~hmac=87eb7e0668cbc36b2ca422a29a04262c09b7aad82b6928feb2909bcf83b08ecf"
+          class="img-activities d-flex" alt="">
+
+        <div class="col" style="margin-top: 25px;">
+          <div class="act-tag right-tag" style="margin-left: -80px;">
+            <div class="row">
+              <div class="col-10">
+                <span id="act-4">Talking with friends or relations</span>
+              </div>
+              <div class="col-2">
+                <img id="act-btn-4" type="button" src="Images/icons/icons8-pending-30.png" class="act-status">
+              </div>
+            </div>
+          </div>
+          <div class="act-tag right-tag">
+            <div class="row">
+              <div class="col-10">
+                <span id="act-5">Talking with friends or relations</span>
+              </div>
+              <div class="col-2">
+                <img id="act-btn-5" type="button" src="Images/icons/icons8-pending-30.png" class="act-status">
+              </div>
+            </div>
+          </div>
+        </div>
+        <img src="Images/icons/icons8-close-48.png" class="close-activities" type="button"
+          id="close-daily-activities-button" alt="">
+      </div>
+    </div>
+    <!-- daily-activities section end -->
+
+    <!-- checkup section start -->
+    <div id="popup-container-checkup">
+      <div id="popup-content-checkup">
+        <div class="contain" id="con">
+          <div class="row d-flex">
+            <div class="col">
+              <img src="Images/icons/hypertension_5141160.png" class="checkup-icon" id="emotional" type="button" alt="">
+              <img src="Images/icons/non-toxic_5137274.png" class="checkup-icon" id="ineraction" type="button" alt="">
+              <img src="Images/icons/food-safety_5141181.png" class="checkup-icon" id="food" type="button" alt="">
+              <img src="Images/icons/no-preservatives_4939002.png" class="checkup-icon" id="medicines" type="button"
+                alt="">
+              <img src="Images/icons/auditory_5141268.png" class="checkup-icon" id="listning" type="button" alt="">
+            </div>
+          </div>
+          <img src="Images/icons/icons8-close-48.png" class="close-checkup" type="button" id="close-checkup-button"
+            alt="">
+        </div>
+
+        <div class="row">
+          <div id="dropdown-emotional" class="drp">
+            <div class="drop">
+              <h4>Emotional</h4>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Sad</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb1"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Heartbroken</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb2"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Pain</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb3"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Alone</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb4"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Anger</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb5"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Fear</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb6"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Guilt</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb7"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Shame</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb8"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Regret</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb9"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Anxiety</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb10"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Disappointment</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb11"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Resentment</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb12"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Frustration</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb13"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Envy</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb14"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Despair</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb15"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Irritation</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb16"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Hostility</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb17"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Insecurity</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb18"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Disgust</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb19"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Confusion</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb20"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Helplessness</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb21"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Jealousy</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb22"></div>
+              </div>
+            </div>
+          </div>
+
+          <div id="dropdown-ineraction" class="drp">
+            <div class="drop">
+              <h4>Interactional</h4>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Less Outgoing</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb23"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Selfishness</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb24"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Toxic Audience</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb25"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Communication Challenges</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb26"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Social Isolation</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb27"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Bullying and Harassment</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb28"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Relationship Strain</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb29"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Violence and Victimization</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb30"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Lack of Supportive Networks</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb31"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Difficulty Accessing Services</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb32"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Internalized Stigma and Shame</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb33"></div>
+              </div>
+            </div>
+          </div>
+
+          <div id="dropdown-food" class="drp">
+            <div class="drop">
+              <h4>Physical</h4>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Sleep Disturbances</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb34"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Fatigue and Low Energy</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb35"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Changes in Appetite and Weight</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb36"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Headaches and Body Aches</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb37"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Gastrointestinal Distress</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb38"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Cardiovascular Health</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb39"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Immune System Dysfunction</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb40"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Chronic Pain Conditions</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb41"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Substance Abuse and Addiction</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb42"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Self-Harm and Injury</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb43"></div>
+              </div>
+            </div>
+          </div>
+
+          <div id="dropdown-medicines" class="drp">
+            <div class="drop">
+              <h4>Medical</h4>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Co-occurring Medical Conditions</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb44"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Medication Side Effects</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb45"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Decreased Healthcare Utilization</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb46"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Increased Risk Behaviors</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb47"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Immune System Dysfunction</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb48"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Sleep Disorders</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb49"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Chronic Pain Conditions</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb50"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Gastrointestinal Issues</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb51"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Self-neglect and Poor Self-care</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb52"></div>
+              </div>
+            </div>
+          </div>
+
+          <div id="dropdown-listning" class="drp">
+            <div class="drop">
+              <h4>Outside</h4>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Social Stigma and Discrimination</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb53"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Financial Challenges</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb54"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Housing Insecurity</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb55"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Access to Healthcare Services</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb56"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Educational Barriers</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb57"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Community Support and Resources</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb58"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Legal and Criminal Justice System Involvement</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb59"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Family and Social Relationships</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb60"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Trauma and Adversity</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb61"></div>
+              </div>
+              <div class="row d-flex check-row">
+                <div class="col-10 tag-check-in">Cultural and Societal Factors</div>
+                <div class="col-1"><input class="form-check-input check-in" type="checkbox" id="cb62"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <img
+              src="https://img.freepik.com/free-vector/brain-with-digital-circuit-programmer-with-laptop-machine-learning-artificial-intelligence-digital-brain-artificial-thinking-process-concept-vector-isolated-illustration_335657-2246.jpg?w=996&t=st=1693701587~exp=1693702187~hmac=bb9110a63c47bcab78b9215bbb56cc68fc317450a450a18e4c176a76e88c7e5b"
+              class="checkup-img" alt=""><br><br>
+
+            <div class="d-grid gap-2 col-6 mx-auto">
+              <button class="btn btn-primary" type="button" id="submit-checkup">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- checkup section end -->
+
+    <!-- therapy-settings section start -->
+    <div id="popup-container-therapy-settings">
+      <div id="popup-content-therapy-settings">
+        <h5 class="rw" style="text-align: center;">Select your free dates and times</h5>
+        <div class="row rw">
+          <div class="col-6">
+            <img class="shedule" src="Images/icons/calendar_282803.png">
+            <input class="changeDateTime" type="text" id="datepicker" value="09/08/2023" style="width: 130px;"><br>
+          </div>
+
+          <div class="col-6">
+            <img style="margin-left: -250px" class="shedule" src="Images/icons/alarm-clock_680375.png">
+            <div style="margin-top: -55px;">
+              <label for="start-time" class="lbl-time st">From</label>
+              <input class="changeDateTime" type="time" id="start-time"><br>
+              <label for="end-time" class="lbl-time ed">To</label>
+              <input class="changeDateTime" type="time" id="end-time">
+            </div>
+          </div>
+        </div>
+
+        <div class="row rw">
+          <div class="col">
+            <button id="add-duration" class="btn btn-primary rounded-pill">Add Duration</button>
+            <button id="send-doctor" class="btn btn-primary rounded-pill"
+              style="margin-right: 10px; margin-left: 10px;">Send to doctor</button>
+            <button id="close-therapy-settings-button" class="btn btn-primary rounded-pill">Cancle</button>
+          </div>
+        </div>
+
+        <div class="row rw">
+          <div class="col">
+            <h5 class="rw" style="text-align: center;">Selected Dates and Durations</h5>
+            <ul id="selected-dates"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- therapy-settings section end -->
+
+    <!-- add-calender section start -->
+    <div id="popup-container-add-calender">
+      <div id="popup-content-add-calender">
+        <img src="Images/icons/question-mark_3840674.png" style="height: 60px; margin-bottom: 20px;">
+        <h6>Do you want to add this event to Calender</h6>
+        <div class="d-flex" style="margin-top: 20px;">
+          <button class="btn btn-primary rounded-pill" id="btn-add-calender"
+            style="margin-left: 90px; margin-right: 20px; width: 80px;">Add</button>
+          <button class="btn btn-primary rounded-pill" id="close-add-calender-button">Cancle</button>
+        </div>
+      </div>
+    </div>
+    <!-- add-calender section end -->
+
+    <!-- add-notification section start -->
+    <div id="popup-container-add-notification">
+      <div id="popup-content-add-notification">
+        <img src="Images/icons/question-mark_3840674.png" style="height: 60px; margin-bottom: 20px;">
+        <h6>Do you want to add a Notification</h6>
+        <div class="cmb-before-time">
+          <select class="form-select form-select-sm form-control" required>
+            <option value="" selected disabled>How much time before</option>
+            <option value="">10 Minutes</option>
+            <option value="">30 Minutes</option>
+            <option value="">1 Hour</option>
+            <option value="">5 Hour</option>
+            <option value="">12 Hour</option>
+            <option value="">1 Day</option>
+            <option value="">2 Days</option>
+            <option value="">1 Week</option>
+          </select>
+        </div>
+        <div class="d-flex" style="margin-top: 20px;">
+          <button class="btn btn-primary rounded-pill" id="btn-add-notification"
+            style="margin-left: 90px; margin-right: 20px; width: 80px;">Add</button>
+          <button class="btn btn-primary rounded-pill" id="close-add-notification-button">Cancle</button>
+        </div>
+      </div>
+    </div>
+    <!-- add-notification section end -->
+
+    <!-- success section start -->
+    <div id="popup-container-success">
+      <div id="popup-content-success">
+        <img src="Images/icons/checked_190411.png" style="height: 60px; margin-bottom: 20px;">
+        <h4>Add Successfully</h4>
+      </div>
+    </div>
+    <!-- success section end -->
+
+    <!-- doctor's test section start -->
+    <div id="popup-container-doctors-test">
+      <div id="popup-content-doctors-test">
+        <P style="text-align: center;">Sorry Doctor's Test not Available yet. It will be avalable soon.</P>
+      </div>
+    </div>
+    <!-- doctor's test section end -->
+
+    <!-- event-manager section start -->
+    <div id="popup-container-event-manager">
+      <div id="popup-content-event-manager">
+
+        <div class="row d-flex">
+
+          <div class="col-6">
+            <div class="event-modal" id="event-manager-event-modal">
+              <div class="row d-flex">
+                <div class="col-6">
+                  <div class="d-flex">
+                    <label>Date:</label>
+                    <input type="text" class="event-input datepicker em" id="event-manager-event-date">
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="d-flex">
+                    <label>Time:</label>
+                    <input class="event-input em" type="time" id="event-manager-event-time" required>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row" style="margin-top: 15px; margin-bottom: 15px;">
+                <div class="d-flex">
+                  <label>Title:</label>
+                  <input type="text" class="event-input em" style="width: 340px;" id="event-manager-event-title"
+                    required>
+                </div>
+              </div>
+
+              <label for="event-description" style="margin-top: 25px;">Description:</label>
+              <textarea id="event-manager-event-description" class="em" rows="5"></textarea>
+
+              <div class="d-flex" style="margin-top: 25px;">
+                <img class="shedule" id="editEvent" src="Images/icons/check_4458848.png" type="button" onclick="editEvent()" alt="">
+                <img class="shedule" id="deleteEvent" src="Images/icons/cancel_4458845.png" type="button" onclick="deleteEvent()" alt="">
+                <img class="shedule" id="searchEvent" src="Images/icons/search_4458836.png" type="button" onclick="searchEvent()" alt="">
+                <img class="shedule" id="addEvent" src="Images/icons/add_4458899.png" type="button" onclick="addAnotherEvent()" alt="">
+                <img class="shedule" id="clearForm" src="Images/icons/spatula_288724.png" type="button" onclick="clearForm()" alt="">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <h5 style="text-align: center; color: rgba(0, 0, 0, 0.647);">List of Events</h5>
+
+            <table border="1" class="event-tbl">
+              <thead style="text-align: center;">
+                <tr class="head-row">
+                  <th class="event-tbl-head">Title</th>
+                  <th class="event-tbl-head">Date</th>
+                  <th class="event-tbl-head">Time</th>
+                </tr>
+              </thead>
+              <tbody id="eventTableBody">
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- event-manager section end -->
+
+    <!-- choose-doctor section start -->
+    <div id="popup-container-choose-doctor">
+      <div id="popup-content-choose-doctor">
+        <div class="row d-flex">
+          <div class="col-6">
+            <img src="Images/icons/icons8-close-48.png" id="close-choose-doctor-button" class="close-chooseDoc" type="button" alt="">
+            <h4 style="text-align: center; margin-bottom: 50px; margin-top: -20px;">Doctors List</h4>
+
+            <div class="DocList" id="doc-list">
+              <ul>
+
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="container-docInfo" id="container-docInfo">
+              <img src="Images/icons/icons8-male-user-94.png" id="doc-img-cd" class="doc-img" alt="">
+
+              <div class="tabControl">
+                <button class="btn btn-success tab-btn2" id="btn-personal2">About</button>
+                <button class="btn btn-outline-success tab-btn2" id="btn-experience2">Experience</button>
+                <button class="btn btn-outline-success tab-btn2" id="btn-social2">Contact</button>
+              </div>
+
+              <div class="doctor-info2 personal active-tab2" id="personal-tab2" style="margin-left: 50px;">
+                <input type="hidden" class="form-control form-control-sm parTag" id="docId-cd" value="" readonly>
+                <div class="d-flex">
+                  <h6 class="tag">Name</h6>
+                  <input type="text" class="form-control form-control-sm docInfoText" id="name-cd" value="Ashan Avishka"
+                    readonly>
+                </div>
+                <hr style="margin-top: -6px;">
+
+                <div class="d-flex">
+                  <h6 class="tag">Age</h6>
+                  <input type="text" class="form-control form-control-sm docInfoText" id="age-cd" value="35" readonly>
+                </div>
+                <hr style="margin-top: -6px;">
+
+                <div class="d-flex">
+                  <h6 class="tag">Job title</h6>
+                  <input type="text" class="form-control form-control-sm docInfoText" id="jobTitle-cd"
+                    value="Physiotherapist" readonly>
+                </div>
+                <hr style="margin-top: -6px;">
+
+                <div class="d-flex">
+                  <h6 class="tag">Hostpital</h6>
+                  <input type="text" class="form-control form-control-sm docInfoText" id="hostpital-cd" name="last_name"
+                    value="Matara genaral hostpital" readonly>
+                </div>
+                <hr style="margin-top: -6px;">
+
+                <div class="d-flex">
+                  <h6 class="tag">Career</h6>
+                  <input type="text" class="form-control form-control-sm docInfoText" id="career-cd" value="6 years"
+                    readonly>
+                </div>
+                <hr style="margin-top: -6px;">
+              </div>
+
+              <div class="doctor-info2 experience" id="experience-tab2">
+                <div class="exp-list">
+                  <ul id="experienceList2"></ul>
+                </div>
+              </div>
+
+              <div class="doctor-info2 social" id="social-tab2">
+                <div class="chooseDoc-con-icon">
+                  <a href="#" style="color: black"><i class="fa fa-phone"></i></i><label class="doc-con-lbl"
+                      id="dCon-cd">(+94) 70 210 0295</label></a><br>
+
+                  <a href="#" id="docChat2" style="color: black"><i class="fa fa-comments"></i><label
+                      class="doc-con-lbl">Brainstorm Chat</label></a><br>
+
+                  <a href="#" id="popupGmail2" style="color: black"><i class="fa fa-envelope"></i><label
+                      class="doc-con-lbl" id="dMail-cd">ashanavishka81@gmail.com</label></a><br><br>
+                </div>
+
+                <a href="www.facebook.com"><i class="fa fa-facebook doc-sc-icon"></i></a>
+                <a href="www.x.com"><i class="fa fa-twitter doc-sc-icon"></i></a>
+                <a href="www.linkedin.com"><i class="fa fa-linkedin doc-sc-icon"></i></a>
+                <a href="www.instagram.com"><i class="fa fa-instagram doc-sc-icon"></i></a>
+              </div>
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <!-- chat section end -->
+
+      <!-- doctor-chat section start -->
+      <div id="popup-container-doctor-chat">
+        <div id="popup-content-doctor-chat">
+          <div class="chat-container">
+            <div class="chat-messages">
+
+            </div>
+
+            <form class="chat-input-form">
+              <input type="text" class="chat-input" required placeholder="Type here, John..." />
+              <button type="submit" class="button send-button">Send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- chat section end -->
+
+      <!-- doctor-video-chat section start -->
+      <div id="popup-container-doctor-video-chat">
+        <div id="popup-content-doctor-video-chat">
+          <img src="Images/icons/icons8-close-48.png" class="close-video-chat" type="button"
+            id="close-doctor-video-chat-button" alt="">
+          <img src="Images/icons/teams_906349.png" class="teams-icon" alt="">
+          <p class="video-text">Meeting ID: <input type="text" id="meeting-ID" style="margin-left: 20px; width: 250px;">
+          </p>
+          <button class="btn btn-primary rounded-pill join-meeting-btn" id="join-meeting-btn">Join</button>
+          <p style="text-align: center;">Powered by MicrosoftTeams</p>
+        </div>
+      </div>
+      <!-- doctor-video-chat section end -->
+
+      <!-- doctor-info section start -->
+      <div id="popup-container-doctor-info">
+        <div id="popup-content-doctor-info">
+
+          <img src="Images/icons/icons8-male-user-94.png" id="doc-img" class="doc-img" alt="">
+
+          <div class="tabControl">
+            <button class="btn btn-success tab-btn" id="btn-personal">About</button>
+            <button class="btn btn-outline-success tab-btn" id="btn-experience">Experience</button>
+            <button class="btn btn-outline-success tab-btn" id="btn-social">Contact</button>
+          </div>
+
+          <div class="doctor-info personal active-tab" id="personal-tab">
+            <input type="hidden" class="form-control form-control-sm parTag" id="docId" value="" readonly>
+            <div class="d-flex">
+              <h6 class="tag">Name</h6>
+              <input type="text" class="form-control form-control-sm docInfoText" id="dname" value="Ashan Avishka"
+                readonly>
+            </div>
+            <hr style="margin-top: -6px;">
+
+            <div class="d-flex">
+              <h6 class="tag">Age</h6>
+              <input type="text" class="form-control form-control-sm docInfoText" id="dage" value="35" readonly>
+            </div>
+            <hr style="margin-top: -6px;">
+
+            <div class="d-flex">
+              <h6 class="tag">Job title</h6>
+              <input type="text" class="form-control form-control-sm docInfoText" id="jobTitle" value="Physiotherapist"
+                readonly>
+            </div>
+            <hr style="margin-top: -6px;">
+
+            <div class="d-flex">
+              <h6 class="tag">Hostpital</h6>
+              <input type="text" class="form-control form-control-sm docInfoText" id="hostpital" name="last_name"
+                value="Matara genaral hostpital" readonly>
+            </div>
+            <hr style="margin-top: -6px;">
+
+            <div class="d-flex">
+              <h6 class="tag">Career</h6>
+              <input type="text" class="form-control form-control-sm docInfoText" id="career" value="6 years" readonly>
+            </div>
+            <hr style="margin-top: -6px;">
+          </div>
+
+          <div class="doctor-info experience" id="experience-tab">
+            <div class="exp-list">
+              <ul id="experienceList"></ul>
+            </div>
+          </div>
+
+          <div class="doctor-info social" id="social-tab">
+            <div class="doc-con-icon">
+              <a href="#" style="color: black"><i class="fa fa-phone"></i></i><label class="doc-con-lbl" id="dCon">(+94)
+                  70 210 0295</label></a><br>
+              <a href="#" id="docChat" style="color: black"><i class="fa fa-comments"></i><label
+                  class="doc-con-lbl">Brainstorm Chat</label></a><br>
+              <a href="#" id="popupGmail" style="color: black"><i class="fa fa-envelope"></i><label class="doc-con-lbl"
+                  id="dMail">ashanavishka81@gmail.com</label></a><br><br>
+            </div>
+
+            <a href="www.facebook.com"><i class="fa fa-facebook doc-sc-icon"></i></a>
+            <a href="www.x.com"><i class="fa fa-twitter doc-sc-icon"></i></a>
+            <a href="www.linkedin.com"><i class="fa fa-linkedin doc-sc-icon"></i></a>
+            <a href="www.instagram.com"><i class="fa fa-instagram doc-sc-icon"></i></a>
+          </div>
+
+          <img src="Images/icons/icons8-close-48.png" class="close-doc-info" type="button" id="close-doctor-info-button"
+            alt="">
+        </div>
+      </div>
+      <!-- doctor-info section end -->
+
+
+      <!-- Success message container -->
+      <div id="success-container" class="success-container">
+        <div id="success-message" class="success-message">
+          <!-- Your success message content here -->
+          Form submitted successfully!
+        </div>
+      </div>
+
+
+      <!--Java Script-->
+      <script src="JS/patient.js"></script>
+      <script src="JS/chatbot.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous">
+          src = " https://kit.fontawesome.com/a076d05399.js"
+      </script>
+
+      <!--Java Script for tooltips-->
+      <script src="https://unpkg.com/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+      <script src="https://unpkg.com/tippy.js@6.3.2/dist/tippy-bundle.umd.js"></script>
+
+</body>
+
+</html>

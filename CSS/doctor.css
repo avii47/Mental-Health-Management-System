@@ -1,0 +1,2042 @@
+/*-------------------------------------------------------
+color,font,variable setup
+-------------------------------------------------------*/
+
+ @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
+
+:root{
+    --font-base:"pleins" , sans-serif;
+    --c-primary: #242F9B;
+    --c-secondry:#9BA3EB;
+    --c-background:#FAE8E0;
+    ---image-logo: url("C:\Users\Ashan\Desktop\Mental Health Management System\Images\logo7.png");
+    ---image-background: url("C:\Users\Ashan\Desktop\Mental Health Management System\Images\vivid-blurred-colorful-background.jpg")
+
+    --dark-text: #f8fbff;
+    --light-body: #f3f8fe;
+    --light-main: #fdfdfd;
+    --light-second: #c3c2c8;
+    --light-hover: #f0f0f0;
+    --light-text: #151426;
+    --light-btn: #9796f0;
+    --blue: #0000ff;
+    --white: #fff;
+    --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    --font-family: consolas;
+}
+* {
+    box-sizing: border-box;
+  }
+
+body{
+    font-family: var(--font-base); 
+    font-size: 16px;
+    line-height: 1.6;
+    display: flex;
+    width: 100% !important;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+h1{
+    font-family: var(--font-base);
+    font-weight:600 !important;
+    color: var(--c-primary) !important;
+    text-shadow: #5a68eb !important;
+    text-align: center;
+    padding-bottom: 20px; 
+}
+
+h3{
+    text-align: center;
+    font-weight: 550 !important;
+}
+
+h5{
+    text-align: center !important; 
+    font-weight: 700 !important;
+}
+
+p{
+    text-align: center;
+}
+a{
+    text-decoration: none !important;
+}
+
+.section-padding{
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+.btn{
+  box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+  -6px -6px 10px -1px rgba(0,0,0,0.15) !important;
+}
+
+/*-------------------------------------------------------
+navbar css setup
+-------------------------------------------------------*/
+.container{
+    z-index: 2;
+    top: 10px;
+    left: 10px;
+    height: 70px;
+    width: 70px !important;
+    border-radius: 50px;
+    position: absolute;
+    transition: 0.8s ease !important;
+    background-color:rgba(140, 87, 220, 0.37); 
+    box-shadow: -6px -6px 10px -1px rgba(255,255,255,0.7),
+                6px 6px 10px -1px rgba(255,255,255,0.7);                       
+}
+.pop{
+    background-image: linear-gradient(to right,rgba(214, 38, 38, 0), rgba(0, 0, 0, 0));
+    transition: 0.1s ease !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+.container.active{
+    height: 580px;
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+                -6px -6px 10px -1px rgba(0,0,0,0.15);
+}
+@keyframes myAnimation1 {
+    0% {
+        opacity: 0;
+        transform: translateZ(-50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateZ(0);
+      }
+  }
+  @keyframes myAnimation2 {
+    from {
+      transform: scale(0);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+.pop.active{
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.93),rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+    animation: myAnimation1 0.5s ease-in-out;
+}
+.toggleBox{
+    position: relative;
+    display: block;
+    height: 70px;
+    width: 70px;
+    border-radius: 50px;
+}
+.icon{
+    position: absolute;
+    height: 5px;
+    width: 35px;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%,-50%);
+    background-color:#9d27e1;
+    border-radius: 50px;
+}
+.fa{
+    font-size:30px !important;
+}
+.toggleBox.active .icon{
+    width: 0;
+}
+.icon::before,.icon::after{
+    position: absolute;
+    content: '';
+    height: 5px;
+    width: 35px;
+    left: 50% ;
+    transform: translate(-50%,-50%);
+    background-color:#9d27e1;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+.icon::before{
+    top: 12px;
+}
+.icon::after{
+    bottom: 8px;
+}
+.toggleBox.active .icon::before{
+    width: 40px;
+    transform-origin: right;
+    transform: translate(-22px,4px) rotate(45deg);
+}
+.toggleBox.active .icon::after{
+    width: 40px;
+    transform-origin: right;
+    transform: translate(-22px,-6px) rotate(-45deg);
+}
+.navItems{
+    width: 100%;
+    visibility: hidden;
+}
+.container.active .navItems{
+    visibility: visible;
+}
+li{
+    list-style: none;
+}
+li a{
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    font-weight:lighter;
+}
+li a i{
+    position: relative;
+    display: block;
+    font-size: 18px;
+    padding: 25px 0;
+    width: 100%;
+    margin-left: -25px;
+    transform: scale(0);
+}
+li a i::after{
+    position: absolute;
+    content: '';
+    top: 50%;
+    right: -36px;
+    width: 0px;
+    height: 50%;
+    transform: translateY(-50%);
+    background-color: rgb(119, 226, 43)!important;    border-radius: 8px 0 0 8px;
+}
+li:hover a i::after{
+    width: 8px;
+    transition: 0.3s;
+}
+.container.active .navItems li a i{
+    transform: scale(1);
+    transition: 0.4s ease;
+    transition-delay: calc(0.08s * var(--i));
+}
+.container.active .navItems li:hover a i{
+    transition: 0.2s ease;
+    color:rgb(119, 226, 43);
+}
+li a span{
+    position: absolute;
+    margin: 25px !important;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+.container.active .navItems li a span{
+    transform: translateX(15px);
+    transition: 0.4s ease;
+    transition-delay: calc(0.08s * var(--g));
+}
+.container.active .navItems li:hover a span{
+    transform: translateX(30px);
+    transition: 0.2s ease;
+    color:rgb(119, 226, 43);
+}
+.container-fluid{
+    background-color:#b9bdeb;
+}
+
+#search{
+    font-size: small; 
+    margin-top: 20px; 
+    width: 420px;
+    margin-left: 20px;
+    height: 35px;
+}
+#profile{
+    height: 70px; 
+    border-radius: 90px; 
+    margin-top: 10px;
+    border-style:groove; 
+    border-color: rgba(2, 100, 247, 0.41);
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+                -6px -6px 10px -1px rgba(255,255,255,0.7) !important;
+}
+#notification{
+    margin-left: 100px !important;
+    height: 40px; 
+    margin-top: 20px; 
+}
+.user{
+   padding-left: 35px;
+   padding-top: 15px;
+}
+
+/*-------------------------------------------------------
+dashboard css setup
+-------------------------------------------------------*/
+.content{
+    padding-top: 10px;
+}
+.patientList{
+    height: 600px !important;
+    width: 300px !important;
+    border-radius: 20px !important;
+}
+.patientcard{
+    background-image: linear-gradient(to bottom, white, #de89ff); 
+    border-radius:20px ;
+}
+.card-img-top{
+    padding-top: -60px !important;
+    border-radius: 20px !important;
+}
+.scrollable-list {
+    margin-top: 260px !important;
+    margin-left: -5px;
+    margin-top: 20px;
+    height: 290px;
+    overflow-y: scroll;
+}
+.scrollable-list::-webkit-scrollbar {
+    width: 0px;
+}
+.patientview{
+    width: 40px; 
+    height: 40px; 
+    margin-right: 20px;
+    margin-left: -20px;
+    border-radius: 50%;
+}
+.li-patient{
+    border-radius: 40px;
+    padding: 3px;
+    margin-bottom: 5px !important;
+}
+.li-patient:hover{
+    background-color: #c637ff;
+    color: white;
+    font-size: 20px !important;
+    transform: translateZ(50px);
+    transition: 0.2s ease-in-out;
+}
+.nameTag{
+  margin-top: 20px !important;
+}
+.md{
+    margin-top: -10px !important;
+    margin-left: -50px !important;
+    width: 800px !important;
+}
+.middle{
+    margin-left: 6px !important;
+    height: 250px;
+    border-radius: 20px;
+    background-image: url("https://img.freepik.com/free-vector/blank-blue-halftone-background_53876-99003.jpg?w=996&t=st=1695966323~exp=1695966923~hmac=2cf2725acd6d6205d8160730937957d854a1d1ff1906e45926ced2f6a717a221"); 
+}
+.shedule{
+    height: 60px;
+    width: 60px;
+    margin-right: 20px;
+    border-radius: 90px;
+    background-color: azure;
+    padding: 5px;
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+                -6px -6px 10px -1px rgba(0,0,0,0.15) !important;
+}
+.scrollable-list-shedule{
+    margin-top: -50px;
+    margin-left: -30px;
+    height: 220px;
+    overflow-y: auto;
+    scroll-snap-type: y proximity;
+}
+.scrollable-list-shedule::-webkit-scrollbar {
+    width: 0px;
+}
+.li-shedule{
+  margin-left: 30px;
+  margin-bottom: 5px;
+}
+.title{
+    font-size: 12px;
+    margin-top: 3px;
+}
+.sheduleview{
+    width: 25px; 
+    height: 25px; 
+    margin-right: 20px;
+    margin-bottom: 5px;
+    border-radius: 50%;
+}
+.scrl{
+  scroll-snap-align: start;
+}
+.first{
+    height: 60px;
+    width: 300px;
+    margin-bottom: 10px;
+    background-color: rgba(26, 115, 232, 0.27);
+    border-radius: 50px;
+    padding: 5px;
+
+    animation-name: myAnimation2;
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.firstimg{
+    width: 50px !important;
+    height: 50px !important;
+    margin-right: 20px !important;
+    margin-bottom: 5px !important;
+}
+.first-title{
+  font-size: 20px !important;
+  margin-top: 10px;
+}
+.dateTime{
+  color: black;
+  font-weight: 500;
+}
+.navbuttons{
+  height: 30px;
+  width: 30px;
+}
+.navdiv{
+  margin-left: 240px;
+  margin-top: -80px;
+}
+.popupAnim{
+  animation-name: myAnimation2;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.sml{
+  height: 40px !important;
+  width: 40px !important;
+  padding: 2px !important;
+  margin-left: -5px !important;
+}
+.more{
+  display: none;
+  transform: translateX(-50%); /* Start with items offscreen to the left */
+  animation: slideIn 0.3s ease-in-out forwards;
+}
+@keyframes slideIn {
+  0% {
+      opacity: 0;
+      transform: translateX(-20%); /* Start with items offscreen to the left */
+  }
+  100% {
+      opacity: 1;
+      transform: translateX(0); /* Slide items in from the left */
+  }
+}
+
+/*-------------------------------------------------------
+Therapy settings window css setup
+-------------------------------------------------------*/
+#popup-container-therapy-settings {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);  
+  z-index: 9999;
+  }
+
+#popup-content-therapy-settings {
+  font-family: var(--font-base);
+  color: var(--c-primary);
+  font-weight: 700 !important;
+  border-radius: 5px;
+  background-color: #ffffff;
+  width: 600px;
+  height:500px;
+  margin: 90px auto;
+  padding-top: 30px;
+  
+
+  animation-name: myAnimation2;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.selected-dates{
+  height: 220px;
+  text-align: center;
+  overflow-y:auto;
+}
+.selected-dates::-webkit-scrollbar {
+  width: 0px;
+}
+.dateSettings-tableHead{
+  margin-left: 130px;
+}
+.therapyDateChange{
+  height: 30px;
+  width: 150px;
+  margin-top: 13px;
+}
+.date-change{
+  margin-top: 20px;
+}
+.changeDateTime{
+  border-style: none;
+}
+.rw{
+  margin-bottom: 20px;
+}
+.js-btn{
+  margin-left: 20px !important;
+  background-color: #9796f0 !important;
+  margin-bottom: 10px !important;
+}
+.list-group-item{
+  color: black !important;
+  font-weight: 500;
+  margin-left: 80px;
+}
+.lbl-time{
+  font-weight: 500;
+  color: black;
+}
+.st{
+  margin-right: 10px;
+}
+.ed{
+  margin-right: 30px;
+  margin-top: 5px;
+}
+.therapySettingsDate{
+  margin-top: 20px;
+  margin-right: 100px;
+}
+
+/*-------------------------------------------------------
+add calender window css setup
+-------------------------------------------------------*/
+#popup-container-add-calender {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 9999;
+  }
+
+#popup-content-add-calender {
+  font-family: var(--font-base);
+  color: var(--c-primary);
+  font-weight: 700 !important;
+  border-radius: 5px;
+  background-color: #ffffff;
+  width: 400px;
+  height:200px;
+  margin: 200px auto;
+  padding: 20px;
+  text-align: center;
+  
+      animation-name: myAnimation2;
+      animation-duration: 0.5s;
+      animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+/*-------------------------------------------------------
+add notification window css setup
+-------------------------------------------------------*/
+#popup-container-add-notification {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 9999;
+  }
+
+#popup-content-add-notification {
+  font-family: var(--font-base);
+  color: var(--c-primary);
+  font-weight: 700 !important;
+  border-radius: 5px;
+  background-color: #ffffff;
+  width: 400px;
+  height:260px;
+  margin: 200px auto;
+  padding: 20px;
+  text-align: center;
+  
+      animation-name: myAnimation2;
+      animation-duration: 0.5s;
+      animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.cmb-before-time{
+  width: 200px;
+  margin-left: 80px;
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+.notification-item {
+  margin-bottom: 5px;
+}
+/*-------------------------------------------------------
+success window css setup
+-------------------------------------------------------*/
+#popup-container-success {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 999999;
+  }
+
+#popup-content-success {
+  font-family: var(--font-base);
+  font-weight: 700 !important;
+  border-radius: 5px;
+  background-color: rgb(195, 226, 139);
+  width: 330px;
+  height:170px;
+  margin: 250px auto;
+  padding: 20px;
+  text-align: center;
+  opacity: 1;   
+}
+.addSuccess{
+  background-color: #8dd62dff;
+}
+
+/*-------------------------------------------------------
+Analysis charts css setup
+-------------------------------------------------------*/
+.lineChartContainer{
+  border-radius: 20px;
+  background-color: rgb(209, 223, 252);
+  width: 520px !important;
+  height: 250px !important;
+  margin-right: 20px !important;
+  box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+                -6px -6px 10px -1px rgba(0,0,0,0.15) !important;
+}
+.doughnutChartContainer{
+  border-radius: 20px;
+  background-image: url("");
+  background-color: rgba(209, 240, 252, 0.23);
+  width: 260px !important;
+  box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+                -6px -6px 10px -1px rgba(0,0,0,0.15) !important;
+}
+.doughnutText{
+  margin-top: -145px !important; 
+  margin-left: 270px;
+  font-weight: 600;
+  font-size: 20px !important;
+  font-family: Microsoft JhengHei UI;
+}
+/*-----------------------------------calender----------------------------------------------------------*/
+.contianer {
+    width: max-content;
+    height: max-content;
+    position: relative;
+    display: flex;
+    padding: 2% 0px 0px 0px;
+    justify-content: center;
+    top: 10%;
+    right: 0%;
+    width: 100%;
+    height: 100%;
+    margin-left: 10px;
+    margin-top: -60px;
+  }
+  .calendar {
+    height: 450px;
+    width: 340px;
+    background-image: url("https://images.pexels.com/photos/7130544/pexels-photo-7130544.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load");
+    border-radius: 25px;
+    overflow: hidden;
+    padding: 30px 20px 0px 20px;
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+                -6px -6px 10px -1px rgba(0,0,0,0.15) !important;
+  }
+  .calendar {
+    box-shadow: var(--shadow);
+  }
+  .calendar-header {
+    background: #9796f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 700;
+    color: var(--white);
+    padding: 10px;
+    border-radius: 20px;
+    margin-top: -10px;
+    height: 40px;
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+    -6px -6px 10px -1px rgba(255,255,255,0.7) !important;
+  }
+  .calendar-body {
+    pad: 10px;
+  }
+  .calendar-week-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    font-weight: 600;
+    cursor: pointer;
+    color:rgb(104, 104, 104);
+  }
+  .calendar-week-days div:hover {
+  color:black;
+  transform: scale(1.2);
+  transition: all .2s ease-in-out;
+  }
+  .calendar-week-days div {
+    display: grid;
+    place-items: center;
+    color: var(--bg-second);
+    height: 50px;
+  }
+  .calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    color: var(--color-txt);
+    margin-top: -20px;
+  }
+  .calendar-days div {
+    width: 37px;
+    height: 33px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    position: relative;
+    cursor: pointer;
+    animation: to-top 1s forwards;
+  }
+  .month-picker {
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .month-picker:hover {
+    background-color: var(--color-hover);
+  }
+  .month-picker:hover {
+    color: var(--color-txt);
+  }
+  .year-picker {
+    display: flex;
+    align-items: center;
+  }
+  .year-change {
+    margin-top: 15px !important;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin: 0px 10px;
+    cursor: pointer;
+  }
+  .year-change:hover {
+    background-color: var(--light-btn);
+    transition:all .2s ease-in-out ;
+    transform: scale(1.12);
+  }
+  .year-change:hover pre {
+    color: var(--bg-body);
+  }
+  .calendar-footer {
+    margin-top: -60px;
+    margin-left: 20px;
+    padding-top: 10px;
+    padding-left: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  #year:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+    transition: all 0.2 ease-in-out;
+  }
+  .calendar-days div span {
+    position: absolute;
+  }
+   .calendar-days div:hover {
+    transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+    background-color: #fbc7d4;
+    border-radius: 20%;
+    color: var(--dark-text);
+  }
+  .calendar-days div.current-date {
+    color: var(--dark-text);
+    background-color: var(--light-btn);
+    border-radius: 50%;
+  }
+  .month-list {
+    position: relative;
+    left: 0;
+    top: 20px;
+    background-color: #ebebeb;
+    color: var(--light-text);
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    border-radius: 20px;
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+                -6px -6px 10px -1px rgba(0,0,0,0.15) !important;
+  }
+  .month-list > div {
+    display: grid;
+    place-content: center;
+    margin: -7px 5px;
+    transition: all 0.2s ease-in-out;
+  }
+  .month-list > div > div {
+    border-radius: 15px;
+    padding: 10px;
+    cursor: pointer;
+  }
+  .month-list > div > div:hover {
+    background-color:var(--light-btn);
+    color: var(--dark-text);
+    transform: scale(0.9);
+    transition: all 0.2s ease-in-out;
+  }
+  .month-list.show {
+    visibility: visible;
+    pointer-events: visible;
+    transition: 0.6s ease-in-out;
+    animation: to-left .71s forwards;
+  }
+  .month-list.hideonce{
+    visibility: hidden;
+  }
+  .month-list.hide {
+    animation: to-right 1s forwards;
+    visibility: none;
+    pointer-events: none;
+  }
+  .date-time-formate {
+    width: max-content;
+    height: max-content;
+    font-family: Dubai Light, Century Gothic;
+    position: relative;
+    display: inline;
+    top: 140px;
+    justify-content: center;
+  }
+  .day-text-formate {
+    font-family: Microsoft JhengHei UI;
+    font-size: 1.4rem;
+    padding-right: 5%;
+    border-right: 3px solid #9796f0;
+    position: absolute;
+    left: -1rem;
+    
+  }
+  .date-time-value {
+    display: block;
+    height: max-content;
+    width: max-content;
+    position: relative;
+    left: 30%;
+    top: -18px;
+    text-align: center;
+    margin-left: -10px;
+  }
+  .time-formate {
+    font-size: 1.5rem;
+    font-family: Microsoft JhengHei UI;
+  }
+  .date-formate{
+    margin-left: -10px;
+    font-family: Microsoft JhengHei UI;
+  }
+  .time-formate.hideTime {
+    animation: hidetime 1.5s forwards;
+  }
+  .day-text-formate.hidetime {
+    animation: hidetime 1.5s forwards;
+  }
+  .date-formate.hideTime {
+    animation: hidetime 1.5s forwards;
+  }
+  .day-text-formate.showtime{
+    animation: showtime 1s forwards;
+  }
+  .time-formate.showtime {
+    animation: showtime 1s forwards;
+  }
+  .date-formate.showtime {
+    animation: showtime 1s forwards;
+  }
+  .calendar-days div.event-marked {
+    background-color: #FFB7B7;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  @keyframes to-top {
+    0% {
+      transform: translateY(0);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(100%);
+      opacity: 1;
+    }
+  }
+  @keyframes to-left {
+    0% {
+      transform: translatex(230%);
+      opacity: 1;
+    }
+    100% {
+      transform: translatex(0);
+      opacity: 1;
+    }
+  }
+  @keyframes to-right {
+    10% {
+      transform: translatex(0);
+      opacity: 1;
+    }
+    100% {
+      transform: translatex(-150%);
+      opacity: 1;
+    }
+  }
+  @keyframes showtime {
+    0% {
+      transform: translatex(250%);
+      opacity: 1;
+    }
+    100% {
+      transform: translatex(0%);
+      opacity: 1;
+    }
+  }
+  @keyframes hidetime {
+    0% {
+      transform: translatex(0%);
+      opacity: 1;
+    }
+    100% {
+      transform: translatex(-370%);
+      opacity: 1;
+    }
+  }
+  @media (max-width:375px) {
+    .month-list>div{
+  
+      margin: 5px 0px;
+    }
+  }
+
+  /* Event Modal Styles */
+  #event-modal-container{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);  
+    z-index: 9999;
+  }
+  #event-modal {
+    font-family: var(--font-base);
+    border-radius: 5px;
+    background-color: #E4F1FF;
+    height:400px;
+    margin: 150px auto;
+    width: 430px !important;
+    border-radius: 10px;
+    padding: 20px 20px 20px 20px;
+  
+    animation-name: myAnimation2;
+    animation-duration: 0.5s;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+.event-modal h3 {
+    margin-top: 0;
+}
+.event-modal label {
+    display: block;
+    margin-top: 10px;
+}
+.event-modal input[type="date"],
+.event-modal textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+#event-description{
+  color: rgb(42, 54, 165);
+}
+.event-modal button {
+    display: block;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.event-input{
+  width: 120px;
+  margin-top: 8px;
+  margin-left: 20px;
+  color: rgb(42, 54, 165);
+  border-top-style: none ;
+  border-left-style: none ;
+  border-right-style: none ;
+  border-color: black;
+  border-width: 1px !important;
+  background-color: #E4F1FF;
+}
+.event-manager{
+  margin-top: 20px !important;
+  margin-left: 30px;
+  background-image: linear-gradient(to left, #7db36e74, #45f9d588);
+  border-radius: 20px;
+  height: 70px ;
+  width: 330px !important;
+  box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+  -6px -6px 10px -1px rgba(255,255,255,0.7);
+}
+#img-EM{
+  margin-top: 5px !important;
+}
+.EM-title{
+  margin-top: -48px; 
+  margin-left: 90px; 
+  color: rgba(0, 0, 0, 0.801); 
+  font-size: 28px;
+  font-family: Microsoft JhengHei UI;
+}
+/*-------------------------------------------------------
+Event manager window css setup
+-------------------------------------------------------*/
+#popup-container-event-manager {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 9999;
+  }
+
+#popup-content-event-manager {
+  font-family: var(--font-base);
+  color:black;
+  font-weight: 700 !important;
+  border-radius: 5px;
+  background-color: #E4F1FF;
+  width: 900px;
+  height:450px;
+  margin: 120px auto;
+  padding-top: 20px;
+  padding-left: 20px;
+
+      animation-name: myAnimation2;
+      animation-duration: 0.5s;
+      animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+#event-manager-event-modal {
+  font-family: var(--font-base);
+  border-radius: 10px;
+  background-color: #AED2FF !important;
+  height:410px;
+  width: 430px !important;
+  padding: 20px 20px 20px 20px;
+}
+.event-tbl{
+  width: 400px !important;
+  font-weight: 500;
+  color: black;
+}
+.event-tbl-head{
+  cursor: default;
+}
+.head-row:hover{
+  background-color: #ffffff !important;
+}
+td{
+  padding-left: 30px ;
+}
+tr:hover{
+  background-color: #f2f2f2 ;
+  cursor: pointer;
+}
+.em{
+  background-color: #AED2FF !important;
+  color:black;
+}
+
+/*-------------------------------------------------------
+Profile window css setup
+-------------------------------------------------------*/
+#popup-container-patient-profile {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 9999;
+  }
+
+#popup-content-patient-profile {
+  font-family: var(--font-base);
+  color: var(--c-primary);
+  font-weight: 700 !important;
+  border-radius: 5px;
+  background-color: #ffffff;
+  width: 1200px;
+  height:600px;
+  margin: 50px auto;
+  padding-left: 40px;
+  text-align: center;
+
+  animation-name: myAnimation2;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.tag{
+  font-weight: 600; 
+  width: 300px !important;
+  text-align: left;
+}
+.parTag{
+  font-weight: 300 !important;
+  font-size: 16px !important;
+  text-align: left;
+  border-style: none !important;
+  margin-top: -4px;
+  margin-right: 10px;
+}
+.ps{
+  width: 367px !important;
+}
+.parTag:focus {
+  border-style: none;
+  border-width: 0px;
+}
+.edit{
+  font-size: 18px !important;
+  color: #0000ff66;
+}
+.edit:hover{
+  color: #0000ff;
+  font-size: 20px !important;
+}
+.invalid-input-icon{
+  height: 18px;
+}
+.edit-btns{
+  margin-left: 150px;
+  margin-top: -60px;
+}
+.close-profile{
+  height: 35px;
+  margin-top: -1098px !important;
+  margin-left: 545px;
+}
+#display_image{
+  height: 100px;
+  width: 100px;
+  border-radius: 90px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-left: 150px;
+  border: 1px solid black;
+}
+.chooseBtn{
+  margin-left: 20px; 
+  margin-top: 50px; 
+  height: 30px; 
+  width: 100px; 
+  border-radius: 20px; 
+  border: 2px solid black;
+}
+.close-patient{
+  height: 35px;
+  width: 35px;
+  margin-top: -973px;
+  margin-left: 543px;
+}
+
+/*-------------------------------------------------------
+new window css setup
+-------------------------------------------------------*/
+#popup-container-new-patients {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 9999;
+  }
+#popup-content-new-patients {
+  font-family: var(--font-base);
+  color:black;
+  font-weight: 700 !important;
+  border-radius: 5px;
+  background-color: #ffffff;
+  width: 1200px;
+  height:600px;
+  margin: 50px auto;
+  padding-top: 20px;
+
+      animation-name: myAnimation2;
+      animation-duration: 0.5s;
+      animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.newPatient {
+  margin-bottom: 10px;
+}
+.progressPatient{
+  margin-bottom: 10px;
+}
+.reportPatient{
+  margin-bottom: 10px;
+}
+.new-patient-pic{
+  height: 160px;
+  border-radius: 90px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.patient-name{
+  width: 250px;
+  padding-top: 8px;
+  font-weight: 500;
+  margin-left: 20px;
+}
+.accept{
+  height: 30px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  background-color: #9796f0 !important;
+  margin-top: 5px !important;
+  margin-right: 10px;
+}
+.personalInfo,
+.medicalInfo {
+    display: none;
+}
+.info-head{
+  text-align: center;
+}
+.info-toggle{
+  height: 30px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  background-color: #40d4c8ff !important;
+  margin-top: 5px !important;
+  margin-right: 10px !important;
+}
+.patientsList{
+  margin-left: 20px;
+  height: 480px;
+  overflow-y: scroll;
+}
+.patientsList::-webkit-scrollbar {
+  width: 0px;
+}
+.close-new{
+  height: 35px;
+  width: 35px;
+  margin-top: -1150px !important;
+  margin-left: 1165px !important;
+}
+
+/*-------------------------------------------------------
+chat window css setup
+-------------------------------------------------------*/
+#popup-container-chat {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 9999;
+  }
+
+#popup-content-chat {
+  font-family: var(--font-base);
+  color: black;
+  border-radius: 5px;
+  background: linear-gradient(45deg, #0ca234, #5cc994, #7bef5e, #e6f861);
+  width: 1200px;
+  height:600px;
+  margin: 50px auto;
+  padding-top: 20px;
+
+  animation-name: myAnimation2;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.chtList{
+  margin-left: -25px;
+  height: 480px;
+  width: 350px;
+  overflow-y: scroll;
+}
+.chtList::-webkit-scrollbar {
+  width: 0px;
+}
+.patient-img2{
+  margin-left: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.pn2{
+  text-align: left;
+}
+.chatListItem{
+  height: 60px;
+  width: 330px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 10px;
+}
+.chatListItem:hover{
+  background-color: #46ab67ff;
+  color: white;
+  font-size: 19px;
+  transition: 0.2s ease-in-out;
+}
+.me-4{
+  width: 250px !important;
+}
+.search {
+  width: 100%;
+  display: flex;
+}
+.searchTerm {
+  width: 100%;
+  border: 3px solid #46ab67ff;
+  border-right: none;
+  padding: 5px;
+  height: 36px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+.searchTerm:focus{
+  color: #46ab67ff;
+}
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #46ab67ff;
+  background: #46ab67ff;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+.wrap{
+  width: 320px;
+  margin-left: 165px;
+  margin-top: 40px !important;
+  transform: translate(-50%, -50%);
+}
+.chatHeadCon{
+  width: 350px !important;
+  height: 580px;
+  border-radius: 20px;
+  margin-left: 20px;
+  margin-top: -10px !important;
+  background-color: #acfdd7;
+}
+.chat-content{
+  margin-left: 10px;
+}
+.button {
+  border: none;
+  padding: 0.625em;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+.button:hover {
+  filter: brightness(0.9);
+}
+.button:active {
+  transform: translateY(2px);
+}
+.chat-container {
+  background:#b9f0da;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 0.5em;
+  padding: 20px;
+  width: 500px;
+  height:600px;
+}
+.chat-messages {
+  height: 500px !important;
+  height: 23em;
+  overflow-y: scroll;
+}
+.chat-messages::-webkit-scrollbar {
+  display: none;
+}
+.message {
+  padding: 10px;
+  border-radius: 1em;
+  margin-bottom: 0.625em;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  width: 300px;
+}
+.nw{
+  animation-name: myAnimation2;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.message-sender {
+  margin-bottom: 0.31em;
+  font-weight: 400;
+  font-size: 13px !important;
+}
+.message-text {
+  font-size: 13px;
+  margin-bottom: 0.31em;
+  word-wrap: break-word; 
+}
+.message-timestamp {
+  font-size: 0.75em;
+  text-align: right;
+  font-weight: 200;
+}
+.blue-bg {
+  background-color:#46ab67ff;
+  margin-left: 440px;
+  margin-top: -40px;
+}
+.gray-bg {
+  margin-left: 70px;
+  margin-top: -40px;
+  background-color: #3d5365;
+}
+.chat-input-form {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  gap: 0.625em;
+}
+.chat-input {
+  padding: 0.625em;
+  border: none;
+  border-radius: 0.5em;
+  background-color: #f5f5f5;
+  color: #333;
+  font-size: 1em;
+  flex-grow: 1;
+}
+.send-button {
+  background-color:#46ab67ff;
+  color: #fff;
+  font-size: 1em;
+  font-weight: bold;
+}
+.clear-chat-button {
+  display: block;
+  margin-top: 10px;
+}
+.patient-img{
+  height: 40px;
+  width: 40px;
+  margin-left: 20px;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: 1px;
+  border-color: white;
+}
+.doctor-img{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  margin-left: 750px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: white;
+}
+
+
+/*-------------------------------------------------------
+progress window css setup
+-------------------------------------------------------*/
+#popup-container-progress {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 9999;
+  }
+#popup-content-progress {
+  font-family: var(--font-base);
+  color:black;
+  font-weight: 700 !important;
+  border-radius: 5px;
+  background-color: #ffffff;
+  width: 1200px;
+  height:600px;
+  margin: 50px auto;
+  padding-top: 20px;
+
+      animation-name: myAnimation2;
+      animation-duration: 0.3s;
+      animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.circulerCharts{
+  background-image: url("https://img.freepik.com/free-vector/winter-blue-pink-gradient-background-vector_53876-117275.jpg?w=996&t=st=1691685455~exp=1691686055~hmac=bc927c294a82b4a74a34c0d1625bf938bce894eb7baae2eacff992d6901edb0f");
+  height: 250px;
+  padding-left: 25px;
+  padding-top: 10px;
+  border-radius: 20px;
+}
+#cr1{
+  fill: none;
+  stroke: url(#progressGradient1);
+  stroke-width: 20px;
+  stroke-dasharray: 472;
+  stroke-dashoffset: 472;
+  animation: anim1 2s linear forwards;
+  animation-delay: 0.3s;
+}
+#cr2{
+  fill: none;
+  stroke: url(#progressGradient2);
+  stroke-width: 20px;
+  stroke-dasharray: 472;
+  stroke-dashoffset: 472;
+  animation: anim2 2s linear forwards;
+  animation-delay: 0.3s;
+}
+#cr3{
+  fill: none;
+  stroke: url(#progressGradient3);
+  stroke-width: 20px;
+  stroke-dasharray: 472;
+  stroke-dashoffset: 472;
+  animation: anim3 2s linear forwards;
+  animation-delay: 0.3s;
+}
+
+#svg1{
+  position: absolute;
+  top: 123px;
+  left: 688px;
+}
+#svg2{
+  position: absolute;
+  top: 123px;
+  left: 910px;
+}
+#svg3{
+  position: absolute;
+  top: 123px;
+  left: 1132px;
+}
+@keyframes anime5 {
+  100%{
+      stroke-dashoffset: 0;
+  }
+}
+@keyframes anime4 {
+  100%{
+      stroke-dashoffset: 400;
+  }
+}
+@keyframes anime3 {
+  100%{
+      stroke-dashoffset: 300;
+  }
+}
+@keyframes anime2 {
+  100%{
+      stroke-dashoffset: 200;
+  }
+}
+@keyframes anime1 {
+  100%{
+      stroke-dashoffset: 100;
+  }
+}
+@keyframes anime6 {
+  100%{
+      stroke-dashoffset: 70;
+  }
+}
+@keyframes anime7 {
+  100%{
+      stroke-dashoffset: 450;
+  }
+}
+@keyframes anime8 {
+  100%{
+      stroke-dashoffset: 350;
+  }
+}
+@keyframes anime9 {
+  100%{
+      stroke-dashoffset: 250;
+  }
+}
+@keyframes anime10 {
+  100%{
+      stroke-dashoffset: 150;
+  }
+}
+.pbar {
+  display: flex;
+  width: 45px;
+  transition: height 1s;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+              -6px -6px 10px -1px rgba(255,255,255,0.7);
+}
+.barchart{
+  margin-top: 30px !important;
+}
+.pDate{
+  bottom: 8%;
+  margin-left: 7px;
+  position: absolute !important;
+}
+.close{
+  height: 35px;
+  margin-top: -1020px;
+  margin-left: 450px;
+}
+.outer{
+  height: 160px;
+  width: 160px;
+  border-radius: 90px !important;
+  box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+              -6px -6px 10px -1px rgba(255,255,255,0.7);
+  padding: 20px;
+}
+.inner{
+  height: 120px;
+  width: 120px;
+  border-radius: 90px;
+  display: flex;
+  font-size: 30px;
+  font-weight: 700;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 4px 4px 6px -1px rgba(0,0,0,0.2),
+              inset -4px -4px 6px -1px rgba(255,255,255,0.7),
+              -0.5px -0.5px 0px rgba(255,255,255,1),
+              0.5px 0.5px 0px rgba(0,0,0,0.15),
+              0px 12px 10px -10px rgba(0,0,0,0.05);
+}
+.back{
+  background-color: rgba(240, 255, 255, 0.76);
+  height: 190px;
+  width: 190px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.15),
+              -6px -6px 10px -1px rgba(0,0,0,0.15) !important;
+}
+#number{
+  color: #5567ea; 
+}
+.chart {
+  margin-top: -17px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 230px;
+  width: 380px;
+  padding: 10px;
+  display: flex;
+}
+.pn{
+  width: 220px;
+}
+.viewPro{
+  background-color: #79AC78 !important;
+  color: white !important;
+  height: 30px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  margin-top: 5px !important;
+  margin-right: 10px;
+}
+.Patient-list-progress{
+  height: 315px;
+  overflow-y: auto;
+}
+.Patient-list-progress::-webkit-scrollbar {
+  width: 0px;
+}
+.overallPrg{
+  margin-top: 30px;
+  margin-left: 120px;
+  font-weight: 600 !important;
+}
+.close-Prg{
+  height: 35px;
+  width: 35px;
+  margin-top: -1118px;
+  margin-left: 1165px;
+}
+.wrap2{
+  width: 380px;
+  margin-left: 225px;
+  margin-top: 40px !important;
+  margin-bottom: 20px;
+  transform: translate(-50%, -50%);
+}
+
+/*-------------------------------------------------------
+report window css setup
+-------------------------------------------------------*/
+#popup-container-report {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 9999;
+  }
+#popup-content-report {
+  font-family: var(--font-base);
+  color:black;
+  font-weight: 700 !important;
+  border-radius: 5px;
+  background-color: #ffffff;
+  width: 1200px;
+  height:600px;
+  margin: 50px auto;
+  padding-top: 20px;
+  padding-left: 20px;
+
+      animation-name: myAnimation2;
+      animation-duration: 0.5s;
+      animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.viewReport{
+  background-color: #419197 !important;
+  color: white !important;
+  height: 30px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  margin-top: 5px !important;
+  margin-right: 10px;
+}
+.approve{
+  background-color: #B0578D !important;
+  color: white !important;
+  height: 30px !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  margin-top: 5px !important;
+  margin-right: 10px;
+}
+.loading{ 
+  margin-left: 800px;
+  margin-top: -300px !important;
+  display: none;
+}
+.loading2{ 
+  background-color: #ffffffbd;
+  margin-left: 570px;
+  margin-top: -570px !important;
+  padding-top: 220px;
+  padding-left: 260px !important;
+  width: 610px !important;
+  height: 570px;
+  display: none;
+}
+.report {
+  text-align: left;
+  color: black;
+  font-weight: 500;
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: 100%; 
+  margin-left: -20px;
+  box-sizing: border-box;
+  height: 560px;
+  overflow: auto; 
+}
+h3{
+  text-align: left;
+}
+.report::-webkit-scrollbar {
+  display: none;
+}
+
+/*-------------------------------------------------------
+settings window css setup
+-------------------------------------------------------*/
+#popup-container-settings {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 9999;
+  }
+#popup-content-settings {
+  font-family: var(--font-base);
+  color:black;
+  font-weight: 700 !important;
+  border-radius: 5px;
+  background-color: #ffffff;
+  width: 1200px;
+  height:600px;
+  margin: 50px auto;
+  padding-top: 20px;
+  padding-left: 20px;
+
+      animation-name: myAnimation2;
+      animation-duration: 0.5s;
+      animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.close-settings{
+  height: 35px;
+  margin-top: -1180px;
+  margin-left: 542px;
+}
+
+/*-------------------------------------------------------
+logout window css setup
+-------------------------------------------------------*/
+#popup-container-logout {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 9999;
+  }
+#popup-content-logout {
+  font-family: var(--font-base);
+  color:black;
+  font-weight: 700 !important;
+  border-radius: 5px;
+  background-color: #ffffff;
+  width: 400px;
+  height:200px;
+  margin: 200px auto;
+  padding-top: 20px;
+  padding-left: 20px;
+  text-align: center;
+
+      animation-name: myAnimation2;
+      animation-duration: 0.5s;
+      animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+/*-------------------------------------------------------
+doctor's test window css setup
+-------------------------------------------------------*/
+#popup-container-doctors-test {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 9999;
+  }
+
+#popup-content-doctors-test {
+  font-family: var(--font-base);
+  border-radius: 5px;
+  background-color: #ffffff;
+  width: 400px;
+  height:200px;
+  margin: 220px auto;
+  padding: 80px 20px;
+  text-align: center;
+  display: flex;
+
+  animation-name: myAnimation2;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+/*-------------------------------------------------------
+Profile window css setup
+-------------------------------------------------------*/
+#popup-container-profile {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 9999;
+  }
+
+#popup-content-profile {
+  font-family: var(--font-base);
+  color: var(--c-primary);
+  border-radius: 5px;
+  background-color: #ffffff;
+  width: 1200px;
+  height:600px;
+  margin: 50px auto;
+  padding-left: 40px;
+  text-align: center;
+
+  animation-name: myAnimation2;
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.tag{
+  font-weight: 600; 
+  width: 300px;
+  text-align: left;
+}
+.parTag{
+  font-weight: 300 !important;
+  font-size: 16px !important;
+  text-align: left;
+  border-style: none !important;
+  margin-top: -4px;
+  margin-right: 10px;
+}
+.ps{
+  width: 367px !important;
+}
+.parTag:focus {
+  border-style: none;
+  border-width: 0px;
+}
+.edit{
+  font-size: 18px !important;
+  color: #0000ff66;
+}
+.edit:hover{
+  color: #0000ff;
+  font-size: 20px !important;
+}
+.invalid-input-icon{
+  height: 18px;
+}
+.profile-pic{
+  height: 100px;
+  border-radius: 90px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+.edit-btns{
+  margin-left: 130px;
+}
+#display_image2{
+  height: 100px;
+  width: 100px;
+  border-radius: 90px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-left: 150px;
+  border: 1px solid black;
+}
+.chooseBtn{
+  margin-left: 20px; 
+  margin-top: 50px; 
+  height: 30px; 
+  width: 100px; 
+  border-radius: 20px; 
+  border: 2px solid black;
+}
+.close-profile{
+  height: 35px;
+  margin-top: -1072px;
+  margin-left: 533px;
+}
+.patientImg{
+  height: 200px;
+  width: 200px;
+  margin-bottom: 30px;
+  border-radius: 50% !important;
+}
+.tabs {
+  margin-left: 100px;
+  margin-bottom: 50px;
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+.tab-button {
+  cursor: pointer;
+  padding: 10px;
+  background-color: #88bcf4;
+  color: #0056b3;
+  border: 1px solid #007bff;
+  margin-right: 5px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+.tab-button.active {
+  background-color: #0056b3;
+  color: white;
+}
+.tab-content { 
+  display: none;
+  padding: 10px;
+}
+.tab-content.active {
+  display: block;
+}
+.pa-handle{
+  margin-left: 200px; 
+  margin-top: 30px;
+}
+.pa-Icon{
+  width: 50px;
+  height: 50px;
+  margin-right: 30px;
+  margin-top: -10px;
+}
+

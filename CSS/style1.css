@@ -1,0 +1,944 @@
+/*-------------------------------------------------------
+color,font,variable setup
+-------------------------------------------------------*/
+:root{
+    --font-base:"pleins" , sans-serif;
+    --c-primary: #242F9B;
+    --c-secondry:#9BA3EB;
+    --c-background:#FAE8E0;
+    ---image-logo: url("C:\Users\Ashan\Desktop\Mental Health Management System\Images\logo7.png");
+}
+
+.input-group-append {
+    cursor: pointer;
+}
+
+body{
+    font-family: var(--font-base); 
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+h1{
+    font-family: var(--font-base);
+    font-weight:600 !important;
+    text-align: center;
+    padding-bottom: 20px; 
+}
+
+h3{
+    text-align: center !important;
+    font-weight: 550 !important;
+}
+
+h5{
+    text-align: center !important; 
+    font-weight: 700 !important;
+}
+
+p{
+    text-align: center;
+}
+
+.section-padding{
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+}
+.headText{
+    margin: 40px auto;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 60px;
+    color: #121212;
+    letter-spacing: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+} 
+.MainHD { 
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 60px;
+    color: #202020;
+    letter-spacing: 10px;
+    text-shadow: 0 1px 0 #ccc, 
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+}
+ 
+@keyframes myAnimation2 {
+    from {
+      transform: scale(0);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+/*-------------------------------------------------------
+Button css setup
+-------------------------------------------------------*/
+.btn-primary{
+    background-color: #5a68eb !important;
+    text-align: center !important;
+    width: 80px; 
+}
+
+#btn-start{
+    height: 60px;
+    width: 200px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+    margin-top: 40px;
+    margin-left: 260px;
+    outline-style: solid;
+    outline-width: 1px;
+    box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.2), /* bottom shadow */
+              0px -8px 8px rgba(0, 0, 0, 0.2), /* top shadow */
+              8px 0px 8px rgba(0, 0, 0, 0.2), /* right shadow */
+              -8px 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+#btn-start:hover{
+    background-color: #2a52e2 !important;
+    margin-top: 38px !important;
+}
+
+/*-------------------------------------------------------
+navbar css setup
+-------------------------------------------------------*/
+#brand{
+    font-size: 30px;
+}
+.logo-img{
+    opacity: 0;
+    animation: fadeInleft 0.5s ease-in forwards; 
+}
+.container{
+    height: 90px !important;
+}
+.navbar{
+    width: 1520px;
+    height: 90px !important;
+    position: fixed !important;
+    font-family: var(--font-base);
+    font-weight: 700;
+    font-size: 16px;
+    /*background-color: #9ba3eb;*/
+    background-color: #5c6aeb88;
+    backdrop-filter: blur(10px);
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: #1900fe;
+
+    z-index: 2;
+}
+.navbr{
+    background-color: var(--c-secondry);
+}
+.nav-login{
+    font-weight: 700;
+    font-size: 19px;
+    color: white;
+    text-decoration: none;  
+}
+.nav-lg{
+    margin-left: 20px;
+    margin-right:30px !important;
+    width: 100px;
+    height: 40px;
+    border-style: solid !important;
+    border-width: 1px !important;
+    border-color: #1900fe !important;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23) !important;
+}
+.nav-lg:hover{
+    margin-top: -2px;
+    background-color: #2a52e2 !important;
+}
+.navbar ul li{
+	opacity: 0;
+	list-style: none;
+	margin: 0 10px;
+	animation: fadeInRight 0.5s linear forwards;
+}
+.navbar-nav .nav-item.active .nav-link {
+    margin-top: -8px;
+    font-size: 25px;
+    color: #000;
+    transition: 0.3s ease-in-out;
+}
+.navbar-nav li a::after {
+    position: absolute;
+    content: "";
+    top: 80%;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #3559E0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s;
+}
+.navbar-nav li a:hover {
+    color: #3559E0;
+}
+.navbar-nav li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.navbar ul li:nth-child(1),
+.sci li:nth-child(1){
+	animation-delay: 0.25s;
+}
+
+.navbar ul li:nth-child(2),
+.sci li:nth-child(2){
+	animation-delay: 0.5s;
+}
+
+.navbar ul li:nth-child(3),
+.sci li:nth-child(3){
+	animation-delay: 0.75s;
+}
+
+.navbar ul li:nth-child(4),
+.sci li:nth-child(4){
+	animation-delay: 1s;
+}
+
+.navbar ul li:nth-child(5),
+.sci li:nth-child(5){
+	animation-delay: 1.25s;
+}
+
+.navbar ul li:nth-child(6),
+.sci li:nth-child(6){
+	animation-delay: 1.5s;
+}
+
+@keyframes fadeInRight{
+	0%{
+		transform: translateX(150px);
+		opacity: 0;
+	}
+	100%{
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+
+
+/*-------------------------------------------------------
+hero css setup
+-------------------------------------------------------*/
+#Hero-section{
+    position: relative;
+    padding-top: 90px;
+}
+.hero{
+    height: 630px;
+    width: 700px;
+    padding-top: 60px;
+    padding-left: 30px;  
+}
+#hero{
+    opacity: 0;
+    padding-top: 70px;
+    animation: fadeInleft 0.5s ease-in forwards; 
+}
+#btn-start{
+    opacity: 0;
+    animation: popup 0.5s ease-in-out forwards;
+    animation-delay: 2.5s;
+}
+.hero-img{
+    opacity: 0;
+    animation: fadeInTop 0.5s ease-in forwards; 
+    animation-delay: 2s;
+}
+.block {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s, transform 1s;
+}
+
+/*-------------------------------------------------------
+services css setup
+-------------------------------------------------------*/
+.services{
+    font-family: var(--font-base);
+    padding-left: 60px;
+}
+.s1{
+    padding-left: 50px;
+}
+.services-heading{
+    margin-top: 100px;
+}
+.service-p{
+    margin-right: 50px; 
+    margin-top: 20px;
+}
+.service-text{
+    margin-top: 100px;
+}
+
+@keyframes fadeInTop{
+	0%{
+		transform: translateY(50px);
+		opacity: 0;
+	}
+	100%{
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+@keyframes fadeInleft{
+	0%{
+		transform: translateX(-150px);
+		opacity: 0;
+	}
+	100%{
+		transform: translateX(0);
+		opacity: 1;
+	}
+}
+@keyframes popup {
+    from {
+      transform: scale(0);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*-------------------------------------------------------
+reviews css setup
+-------------------------------------------------------*/
+#Reviews-section{
+    background-image: url('../images/Untitled\ \(1\).png');
+    background-size:contain;
+    padding-bottom: 100px;
+    padding-top: 50px;
+    padding-left: 50px;
+}
+.review-user-img{
+    margin-top: -130px;
+    margin-bottom: 30px;
+    height: 250px ;
+    width: 250px ;
+    border-radius: 50%;
+    transition: transform 0.2s ease-out;
+}
+.review-content{
+    position:relative;
+    height: 400px;
+    width: 600px;
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: #e9bff0;
+    text-align: center;
+    align-items: center;
+    margin-top: 130px;
+}
+.review-content:hover{
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+    top: -4px;
+    border: 1px solid #cccccc;
+    background-color: #e092ed;
+}
+.review-content:hover .review-user-img{
+    transform: scale(1.1);
+}
+.review-star{
+    height: 30px;
+    width: 30px;
+}
+
+/*-------------------------------------------------------
+about css setup
+-------------------------------------------------------*/
+.intro{
+    background-image: url('../Images/Untitled.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.about-par{
+    padding-top: 20px;
+    font-size: 18px;
+    text-align: center;
+    letter-spacing: normal;
+    line-height:30px;
+    margin-left: 100px;
+}
+.abt-text-col{
+    padding-top: 100px; 
+    padding-right: 100px;
+}
+.abt-head{
+    margin-bottom: 20px; 
+    text-align: center;
+}
+.mental-awareness{
+    padding-left: 50px;
+    height: 900px;
+    background-image: url('../Images/still-life-sustainability-concept-arrangement.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+.social-act{
+    background-color: #eff8f5;
+    height: 800px !important;
+    padding-top: 20px;
+}
+.sc-act-icon{
+    height: 50px;
+    width: 50px;
+    margin-right: 50px;
+}
+.sci-act-li{
+    margin-bottom: 20px;
+}
+.no-bullets {
+    list-style-type: none;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+#About-section2{
+    margin-top: 100px;
+    background-image: url('../images/4november\ background\ 7.png');
+    background-size:contain;
+    background-repeat: no-repeat;
+}
+.card-physiyologists{
+    height: 300px !important; 
+    width: 600px !important; 
+    border-width: 0px !important;
+    margin-bottom: 150px;
+}
+.img-physiyologists{
+    transition: transform 0.3s ease-out;
+}
+.image-zoom-container {
+    overflow: hidden;
+    position: relative;
+    height: 300px;
+    width: 300px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    clip-path: polygon(35% 0%, 100% 0, 100% 100%, 0% 100%); 
+}
+.card-physiyologists{
+    background-color: #9ba3eb00 !important;
+}
+.card-physiyologists:hover .img-physiyologists {
+    transform: scale(1.2); 
+}
+.card-physiyologists:hover {
+    transition: 0.3s ease-in-out; 
+    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+    top: -4px;
+    border: 1px solid #cccccc;
+}
+.sci {
+    position: relative;
+    display: flex;
+    margin-top: 5px;
+}
+.sci li {
+    list-style: none;
+    margin: 4px;
+} 
+.sci li a {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: transparent;
+    font-size: 1.5em;
+    color: #444;
+    text-decoration: none;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    transition: 0.5s;
+}
+.sci li a:hover {
+    background: #00A9FF;
+    color: #fff;
+}
+
+.testimotionals {
+    width:330px;
+    display:inline-block;
+    margin-left:30px;
+    margin-top:50px
+}
+.testimotionals .card {
+    position:relative;
+    overflow:hidden;
+    width:330px;
+    margin:0 auto;
+    background:#333;
+    color: #BC7AF9;
+    padding:20px;
+    box-sizing:border-box;
+    text-align:center;
+    box-shadow:0 10px 40px rgba(0,0,0,.5)
+}
+.testimotionals .card .layer {
+    z-index:1;
+    position:absolute;
+    top:calc(100% - 2px);
+    height:100%;
+    width:100%;
+    left:0;
+    background:linear-gradient(to left , #5a68eb, rgb(183, 134, 247));
+    transition:0.5s;
+}  
+.testimotionals .card .content {
+    z-index:2; 
+    position:relative;
+}  
+.testimotionals .card:hover  .layer{
+    top:0;
+}   
+.testimotionals .card .content p {
+    font-size:14px;
+    line-height:24px;
+    color:#fff; 
+}
+.testimotionals .card .content .image {
+    width:100px; height:100px;
+    margin:0 auto;
+    border-radius:50%;
+    overflow:hidden;
+    border: 4px solid white;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}  
+.testimotionals .card .conte nt .details h2 {
+    font-size:18px;
+    color:white;
+}
+.testimotionals .card .content .details h2 span {
+    font-size:18px;
+    color:#9400FF;
+    transition:0.5s;
+}
+.testimotionals .card:hover .content .details h2 span {
+    color:white;
+    position:relative
+}
+.testimotionals .card:hover .content .details h2 {
+    color:white;
+    position:relative
+}
+
+/*-------------------------------------------------------
+Footer css setup
+-------------------------------------------------------*/
+.footer{
+    height: 850px; 
+    margin-top: 100px !important;
+    padding-top: 100px;
+    padding-left: 50px;
+    padding-right: 50px;
+    color:rgba(255, 255, 255, 0.6);
+    background-image: url('../images/9538280.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.footer-col{
+    padding-right: 25px !important;
+    padding-left: 25px !important;
+}
+.footer-head{
+    color: white;
+    margin-bottom: 40px;
+}
+.country-icon{
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.view-more-btn{
+    margin-bottom: 20px;
+}
+.org-icon{
+    width: 40px; 
+    height: 40px; 
+    margin-right: 20px;
+    border-radius: 50%;
+}
+.org-li{
+    margin-bottom: 15px;
+}
+.txt-dec-non{
+    text-decoration: none !important;
+}
+.contact-dt{
+    font-size: 16px;
+    color:rgba(255, 255, 255, 0.6);
+}
+.sci-icon{
+    color:rgba(255, 255, 255, 0.6);
+    font-size: 35px;
+    margin-right: 20px;
+}
+.sci-icon:hover{
+    transition: 0.2s ease-in-out;
+    color: white;
+}
+.con-icon{
+    color:rgba(255, 255, 255, 0.6);
+    font-size: 35px;
+    margin-right: 20px;
+}
+.hover-pop:hover{
+    transition: 0.2s ease-in-out;
+    transform:translateY(-5%);
+    color: white;
+    cursor: pointer;
+}
+.hover-pop:hover .con-icon{
+    transition: 0.2s ease-in-out;
+    transform:translateY(-5%);
+    color: white;
+    cursor: pointer;
+}
+
+/* Custom tooltip class */
+.custom-tooltip .tooltip-inner {
+    background-color:white;
+    color: black;
+    text-align: left;
+    font-size: 12px;
+    font-weight: 450;
+    max-width: 500px;
+}
+.custom-tooltip.bs-tooltip-top .tooltip-arrow::before,
+.custom-tooltip.bs-tooltip-auto[x-placement^="top"] .tooltip-arrow::before {
+    border-top-color: white !important;
+} 
+
+/*-------------------------------------------------------
+Login window css setup
+-------------------------------------------------------*/
+#popup-container-login {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 9999;
+}
+
+#popup-content-login {
+    font-family: var(--font-base);
+    background-image: url('../Images/pexels-codioful-\(formerly-gradienta\)-7130555.jpg');
+    background-color:rgba(124, 107, 235, 0.482);
+    background-size: cover;
+    width: 400px;
+    height:100%;
+    margin-left: 1120px;
+    padding: 20px;
+    padding-top: 0px;
+    text-align: center;
+    animation: slideIn 0.5s ease-in-out;
+}
+
+#popup-content-login.fadeOutAnimation {
+    animation: slideOut 0.5s ease-in-out;
+}
+
+@keyframes slideIn{
+	0%{
+		transform: translateX(400px);
+	}
+	100%{
+		transform: translateX(0);
+	}
+}
+
+@keyframes slideOut{
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(400px);
+    }
+}
+
+@keyframes myAnimation {
+    0% {
+      opacity: 0;
+      transform: translateY(-100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
+  
+.form-group {
+    position: relative !important;
+    margin-bottom: 10px !important;
+}
+.form-control {
+    border: none !important;
+    border-bottom: 1px solid #000 !important; /* Change color as needed */
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background-color: rgba(255, 255, 255, 0) !important;
+}
+.label-text {
+    position: absolute;
+    top: 0.5rem; 
+    left: 10px;
+    color: #000; 
+    font-weight: 400;
+    pointer-events: none; 
+    transition: top 0.3s, font-size 0.3s;
+}
+.form-control:focus {
+    outline: none !important;
+}
+.form-control:focus + .label-text,
+.form-control:not(:placeholder-shown) + .label-text {
+    top: -1.25rem; 
+    font-size: 0.8rem !important; 
+}
+
+.btn-group{
+    height: 50px;
+    width: 200px;
+    margin-bottom: 20px;
+    background-color: #d7c0e700;
+    border: 1px solid black !important;
+    border-radius: 10px !important;
+    padding: 5px;
+    background-color: #D0A2F7;
+}
+.btn-check {
+    transition: background-color 0.5s ease-in-out !important;
+}
+.btn-check + label{
+    height: 30px;
+    width: 60px;
+    border-radius: 10px !important;
+    font-size: 14px;
+    color: black;
+    border-color: black;
+}  
+.btn-check:checked + label {
+    background-color: #793FDF !important; 
+    color: #fff !important; 
+    height: 40px;
+    width: 90px;
+    font-size: 19px !important;
+    transition: 0.3s ease-in-out !important;
+}
+.btn-check:not(:checked) + label{
+    margin-top: 5px;
+}
+.lg-btn{
+    margin-top: 50px; 
+    width: 360px;
+    background-color: #793FDF !important;
+    outline-style: solid;
+    outline-width: 1px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.lg-btn:hover{
+    background-color: #7752FE !important;
+    margin-top: 48px;
+}
+.newAccBtn{
+    position: absolute;
+    margin-top: 105px; 
+    margin-left: -360px;
+    width: 360px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+
+/*-------------------------------------------------------
+sign-in window css setup
+-------------------------------------------------------*/
+
+  #popup-container-sign {
+    display:none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    
+    z-index: 9999;
+  }
+  
+  #popup-content-sign {
+    font-family: var(--font-base);
+    border-radius: 5px;
+    background-image: url('../Images/pexels-codioful-\(formerly-gradienta\)-7130555.jpg');
+    
+    background-size: cover;
+    width: 400px;
+    height:100%;
+    margin-left: 1120px;
+    padding: 20px;
+    padding-top: 0px;
+    text-align: center;
+    animation: slideIn 0.5s ease-in-out;
+  }
+
+  #success-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 9999;
+  }
+  .success-message{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: black !important;
+    padding: 25px;
+    border-radius: 20px;
+    margin-left: 600px;
+    margin-top: 300px;
+    width: 300px;
+    height: 100px;
+    background-color: #b9e271ff;
+
+    animation-name: myAnimation2;
+    animation-duration: 0.5s;
+    animation-timing-function:cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  .signup-btn{
+    width: 100px;
+    background-color: #793FDF !important;
+    color: white !important;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  }
+  .signup-btn:hover{
+    background-color: #7752FE !important;
+    margin-top: -4px;
+    outline-style: solid;
+    outline-width: 1px;
+  }
+  .inUse{
+    margin-top: 10px !important;
+    color: red !important;
+    display: none;
+  }
+  .next-form-anime{
+    animation: fadeInRight2 0.5s linear forwards;
+  }
+  .back-form-anime{
+    animation: fadeInleft2 0.5s ease-in forwards !important;
+  }
+  @keyframes fadeInleft2{
+	0%{
+		transform: translateX(0px);
+		opacity: 1;
+	}
+	100%{
+		transform: translateX(250px);
+		opacity: 0;
+	}
+  }
+  @keyframes fadeInRight2{
+	0%{
+		transform: translateX(250px);
+		opacity: 0;
+	}
+	100%{
+		transform: translateX(0);
+		opacity: 1;
+	}
+  }
+  .success-form{
+    display: none;
+  }
+  .success-text{
+    margin-top: 50px;
+    height: 200px;
+    padding-top: 70px;
+    color: darkgreen;
+    background-image: url('https://i.gifer.com/6ob.gif');
+  }
+  #popup-content-sign.fadeOutAnimation {
+    animation: slideOut 0.5s ease-in-out;
+} 
+
+/*-------------------------------------------------------
+reset pw window css setup
+-------------------------------------------------------*/
+#popup-container-resetPW {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 9999;
+}
+
+#popup-content-resetPW {
+    font-family: var(--font-base);
+    border-radius: 0.5em;
+    background-color: #ffffff;
+    width: 600px;
+    height:500px;
+    margin: 50px auto;
+    padding: 50px;
+
+      animation-name: myAnimation2;
+      animation-duration: 0.5s;
+      animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+
